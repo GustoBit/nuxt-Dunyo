@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'Euclid-Light';
+	src: url('@/assets/font/euclid/light.ttf');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Euclid-Regular';
+	src: url('@/assets/font/euclid/regular.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Euclid-Medium';
+	src: url('@/assets/font/euclid/medium.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Euclid-Semibold';
+	src: url('@/assets/font/euclid/semibold.ttf');
+	font-weight: 600;
+}
+
+.light {
+	font-family: 'Euclid-Light';
+}
+
+.regular {
+	font-family: 'Euclid-Regular';
+}
+
+.medium {
+	font-family: 'Euclid-Medium';
+}
+
+.semibold {
+	font-family: 'Euclid-Semibold';
+}

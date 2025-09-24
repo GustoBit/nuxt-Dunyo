@@ -1,0 +1,20 @@
+{
+	"home": "Home",
+	"contacts": "Contacts",
+	"newsDetails": "News Details",
+
+	"search": "Search for news ...",
+	"no_result": "No results found!",
+	"no_result_text": "No components found for this search term. Please try again.",
+
+	"newsByCountries": "News by countries",
+	"sportNews": "Sport News",
+	"latestNews": "Latest News",
+	"seeAll": "See all",
+	"mustRead": "Must Read",
+	"feedback": "Feedback",
+	"name": "Full name",
+	"email": "Email",
+	"message": "Message",
+	"sendFeedback": "Send feedback"
+}

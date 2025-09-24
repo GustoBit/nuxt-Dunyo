@@ -1,0 +1,22 @@
+<script setup lang="ts">
+const route = useRoute()
+const { t } = useI18n()
+
+useHead(() => {
+	const key = typeof route.meta?.title === 'string' ? route.meta.title : ''
+
+	return {
+		title: `Dunyo | ${key ? t(key) : ''}`,
+	}
+})
+</script>
+
+<template>
+	<div class="flex flex-col h-full">
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</div>
+</template>

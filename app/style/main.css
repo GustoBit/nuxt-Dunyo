@@ -1,0 +1,55 @@
+/* html {
+	@apply h-full bg-white900;
+}
+body {
+	@apply h-full;
+}
+#__nuxt {
+	@apply h-full;
+} */
+
+.container {
+	@apply w-full max-w-[1353px] sm:mx-auto px-2 sm:px-4 xl:px-0;
+}
+
+.gradient {
+	@apply absolute bottom-0 left-0 right-0 p-4 space-y-2 lg:p-8 lg:space-y-4 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-60% to-[#002D72]/0;
+}
+
+.mb72 {
+	@apply mb-[72px];
+}
+
+button {
+	@apply cursor-pointer;
+}
+
+@theme {
+	/* COLORS */
+	--color-white900: #ffffff;
+	--color-white800: #fdfeff;
+	--color-white700: #fafafb;
+	--color-white600: #e5e8ee;
+	--color-white500: #e2eaf6;
+	--color-white400: #eef4ff;
+
+	--color-black900: #000000;
+	--color-black800: #14181f;
+
+	--color-gray500: #e8e9eb;
+	--color-gray400: #687488;
+	--color-gray300: #38404e;
+	--color-gray200: #595f67;
+	--color-gray100: #9aa0aa;
+
+	--color-blue900: #0056a6;
+	--color-blue800: #002d72;
+	--color-blue700: #4991ff;
+	--color-blue600: #0567c3;
+	--color-blue500: #113c64;
+	--color-blue400: #4c5d77;
+
+	--color-yellow500: #ffe500;
+}
+
+/* ##0056A6 */

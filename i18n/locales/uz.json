@@ -1,0 +1,20 @@
+{
+	"home": "Bosh Sahifa",
+	"contacts": "Kontaktlar",
+	"newsDetails": "Yangilik tafsilotlari",
+
+	"search": "Yangiliklarni qidirish ...",
+	"no_result": "Natija topilmadi!",
+	"no_result_text": "Ushbu soʻrov boʻyicha komponentlar topilmadi. Iltimos, qayta urinib koʻring.",
+
+	"newsByCountries": "Mamlakatlar bo‘yicha yangiliklar",
+	"sportNews": "Sport yangiliklari",
+	"latestNews": "So‘nggi yangiliklar",
+	"seeAll": "Barchasini ko‘rish",
+	"mustRead": "O‘qilishi shart",
+	"feedback": "Fikr-mulohaza",
+	"name": "Toʻliq ism",
+	"email": "Elektron pochta",
+	"message": "Xabar",
+	"sendFeedback": "Fikr-mulohazani yuborish"
+}
