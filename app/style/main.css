@@ -1,27 +1,29 @@
-/* html {
-	@apply h-full bg-white900;
-}
-body {
-	@apply h-full;
-}
-#__nuxt {
-	@apply h-full;
-} */
-
 .container {
 	@apply w-full max-w-[1353px] sm:mx-auto px-2 sm:px-4 xl:px-0;
-}
-
-.gradient {
-	@apply absolute bottom-0 left-0 right-0 p-4 space-y-2 lg:p-8 lg:space-y-4 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-60% to-[#002D72]/0;
 }
 
 .mb72 {
 	@apply mb-[72px];
 }
 
+.gradient {
+	@apply absolute bottom-0 left-0 right-0 p-4 space-y-2 lg:p-8 lg:space-y-4 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-60% to-[#002D72]/0;
+}
+
 button {
 	@apply cursor-pointer;
+}
+
+.img {
+	@apply w-full h-full object-cover object-center;
+}
+
+.title {
+	@apply line-clamp-2 w-fit leading-tight text-black800 text-2xl xl:hover:text-blue900 active:text-blue900;
+}
+
+.date {
+	@apply text-gray300 text-lg;
 }
 
 @theme {
@@ -36,6 +38,7 @@ button {
 	--color-black900: #000000;
 	--color-black800: #14181f;
 
+	--color-gray600: #787b81;
 	--color-gray500: #e8e9eb;
 	--color-gray400: #687488;
 	--color-gray300: #38404e;
@@ -52,4 +55,4 @@ button {
 	--color-yellow500: #ffe500;
 }
 
-/* ##0056A6 */
+/* ####E8E9EB */

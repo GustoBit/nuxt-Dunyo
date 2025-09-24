@@ -1,51 +1,10 @@
 <script setup lang="ts">
+import type { News } from '~/interface/interface'
 import { formatDate, formatDate2 } from '~/utils/func'
-import img from '@/assets/img/img.jpg'
 
-const data = ref([
-	{
-		_id: '1',
-		date: new Date(),
-		title: '‘Global Protests Erupt Over Climate Inaction’',
-		category: ['#Country', '#Presidents'],
-		img: img,
-	},
-	{
-		_id: '2',
-		date: new Date(),
-		title: '‘Explosion Reported in Tashkent’s Central District’',
-		category: ['#Country', '#Presidents'],
-		img: img,
-	},
-	{
-		_id: '3',
-		date: new Date(),
-		title: 'Education Reform to Digitize All High Schools by 2027',
-		category: ['#Country', '#Presidents'],
-		img: img,
-	},
-	{
-		_id: '4',
-		date: new Date(),
-		title: 'Education Reform to Digitize All High Schools by 2027',
-		category: ['#Country', '#Presidents'],
-		img: img,
-	},
-	{
-		_id: '5',
-		date: new Date(),
-		title: 'Education Reform to Digitize All High Schools by 2027',
-		category: ['#Country', '#Presidents'],
-		img: img,
-	},
-	{
-		_id: '6',
-		date: new Date(),
-		title: 'Education Reform to Digitize All High Schools by 2027',
-		category: ['#Country', '#Presidents'],
-		img: img,
-	},
-])
+defineProps<{
+	data: News[]
+}>()
 </script>
 
 <template>
@@ -66,7 +25,7 @@ const data = ref([
 				<div class="text-gray300 medium text-lg">{{ formatDate(item.date) }}</div>
 				<NuxtLink
 					:to="$localePath('/')"
-					class="medium text-black800 text-2xl line-clamp-2"
+					class="medium title"
 				>
 					{{ item.title }}
 				</NuxtLink>
@@ -96,7 +55,7 @@ const data = ref([
 					<div class="text-white500 medium text-lg">{{ formatDate2(item.date) }}</div>
 					<NuxtLink
 						:to="$localePath('/')"
-						class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2"
+						class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700"
 					>
 						{{ item.title }}
 					</NuxtLink>
@@ -113,19 +72,11 @@ const data = ref([
 				<div class="text-gray300 medium text-lg">{{ formatDate2(item.date) }}</div>
 				<NuxtLink
 					:to="$localePath('/')"
-					class="medium text-black800 text-2xl line-clamp-2"
+					class="medium title"
 				>
 					{{ item.title }}
 				</NuxtLink>
-				<div class="flex items-center gap-4">
-					<div
-						v-for="(c, i) in item.category.slice(0, 2)"
-						:key="i"
-						class="select-none text-blue700 light text-lg"
-					>
-						{{ c }}
-					</div>
-				</div>
+				<UiCategory :category="item.category" />
 			</div>
 		</div>
 	</div>

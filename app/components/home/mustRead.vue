@@ -1,67 +1,16 @@
 <script setup lang="ts">
-import type { Data } from '~/interface/interface'
+import type { News } from '~/interface/interface'
 import { formatDate2 } from '~/utils/func'
-import img from '~/assets/img/img.jpg'
-import ads2 from '~/assets/img/ads2.jpg'
 
-const data = ref<Data[]>([
-	{
-		_id: '1',
-		category: ['#Country', '#Presidents '],
-		date: new Date(),
-		img: img,
-		title: '‘Explosion Reported in Tashkent’s Central District’',
-		topic: 'Politics',
-		read: '4 min read',
-		description: 'Initial reports confirm minor injuries; police and rescue teams are securing the area and investigating the cause.',
-	},
-	{
-		_id: '2',
-		category: ['#Country', '#Presidents '],
-		date: new Date(),
-		img: img,
-		title: '‘Uzbekistan’s Economy Grows 5.3% in Q2’',
-		topic: 'Economy',
-		read: '3 min read',
-		description: 'Initial reports confirm minor injuries; police and rescue teams are securing the area and investigating the cause.',
-	},
-	{
-		_id: '3',
-		category: ['#Country', '#Presidents '],
-		date: new Date(),
-		img: img,
-		title: '‘Tashkent Becomes Regional Hub for Startups’',
-		topic: 'Technology',
-		read: '5 min read',
-		description: 'Initial reports confirm minor injuries; police and rescue teams are securing the area and investigating the cause.',
-	},
-	{
-		_id: '4',
-		category: ['#Country', '#Presidents '],
-		date: new Date(),
-		img: img,
-		title: '‘Global Protests Erupt Over Climate Inaction’',
-		topic: 'World',
-		read: '5 min read',
-		description: 'Initial reports confirm minor injuries; police and rescue teams are securing the area and investigating the cause.',
-	},
-	{
-		_id: '5',
-		category: ['#Country', '#Presidents '],
-		date: new Date(),
-		img: img,
-		title: '‘Explosion Reported in Tashkent’s Central District’',
-		topic: 'World',
-		read: '5 min read',
-		description: 'Initial reports confirm minor injuries; police and rescue teams are securing the area and investigating the cause.',
-	},
-])
+defineProps<{
+	data: News[]
+}>()
 </script>
 
 <template>
 	<div class="space-y-[26px] mb72">
-		<div class="flex items-center justify-between">
-			<h1 class="text-black800 semibold text-4xl lg:text-[42px]">{{ $t('mustRead') }}</h1>
+		<div class="flex items-center justify-between gap-2">
+			<h1 class="text-black800 semibold text-3xl sm:text-4xl lg:text-[42px]">{{ $t('mustRead') }}</h1>
 
 			<NuxtLink
 				:to="$localePath('/')"
@@ -81,19 +30,11 @@ const data = ref<Data[]>([
 					<div class="text-gray300 medium text-lg">{{ formatDate2(item.date) }}</div>
 					<NuxtLink
 						:to="$localePath('/')"
-						class="text-black800 medium text-2xl line-clamp-2"
+						class="medium title"
 					>
 						{{ item.title }}
 					</NuxtLink>
-					<div class="flex items-center gap-4">
-						<div
-							v-for="(c, i) in item.category.slice(0, 2)"
-							:key="i"
-							class="select-none text-blue700 light text-lg"
-						>
-							{{ c }}
-						</div>
-					</div>
+					<UiCategory :category="item.category" />
 				</div>
 			</div>
 
@@ -112,7 +53,7 @@ const data = ref<Data[]>([
 						<div class="text-white500 medium text-lg">{{ formatDate2(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath('/')"
-							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2"
+							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700"
 						>
 							{{ item.title }}
 						</NuxtLink>
@@ -121,19 +62,10 @@ const data = ref<Data[]>([
 					</div>
 				</div>
 
-				<div class="h-[180px] lg:h-[616px] rounded-xl overflow-hidden relative">
-					<img
-						:src="ads2"
-						alt=""
-						class="object-cover object-center w-full h-full"
-					/>
-					<button
-						type="button"
-						class="cursor-pointer absolute left-3 top-3 bg-yellow500 rounded-[50px] py-2 px-[26px] xl:hover:bg-yellow500/90 active:bg-yellow500/90"
-					>
-						<p class="text-black800 medium text-xl lg:text-2xl">Ads</p>
-					</button>
-				</div>
+				<UiAds
+					:style="`h-[180px] lg:h-[616px]`"
+					position-btn="16"
+				/>
 			</div>
 		</div>
 	</div>

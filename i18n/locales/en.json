@@ -16,5 +16,6 @@
 	"name": "Full name",
 	"email": "Email",
 	"message": "Message",
-	"sendFeedback": "Send feedback"
+	"sendFeedback": "Send feedback",
+	"latestSportNews": "Latest sport news"
 }

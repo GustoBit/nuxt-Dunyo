@@ -6,14 +6,14 @@ export interface SearchItem {
 	icon: Component
 }
 
-export interface Data {
+export interface News {
 	_id: string
-	date: Date
 	title: string
-	category: string[]
 	img: string
-	topic?: string
-	read?: string
-	description?: string
+	description: string
+	date: Date
+	category: string[]
 	slug: string
+	topic: string
+	read: string
 }

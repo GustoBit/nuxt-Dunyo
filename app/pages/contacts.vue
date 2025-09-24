@@ -8,6 +8,9 @@ definePageMeta({
 	<div class="container">
 		<UiNav />
 		<ContactHero />
-		<UiAds1 mb="" />
+		<UiAds
+			:style="`h-[180px] lg:h-[263px]`"
+			position-btn="26"
+		/>
 	</div>
 </template>

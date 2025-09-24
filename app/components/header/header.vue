@@ -19,7 +19,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<header :class="['pb-1 mb-5 lg:mb-9 sticky z-50 bg-gradient-to-b from-white900 via-white900/90 to-white900/80 top-0 transition-all duration-300 ease-in-out pt-2', isScrolled ? 'lg:pt-1 shadow' : 'lg:pt-8']">
+	<header :class="['pb-1 mb-5 xl:mb-9 sticky z-50 bg-gradient-to-b from-white900 via-white900/90 to-white900/80 top-0 transition-all duration-300 ease-in-out pt-2', isScrolled ? 'xl:pt-1 shadow' : 'xl:pt-8']">
 		<div class="container">
 			<div class="flex items-center">
 				<NuxtLink

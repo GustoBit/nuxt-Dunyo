@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Data } from '~/interface/interface'
+import type { News } from '~/interface/interface'
 import { formatDate2 } from '~/utils/func'
 
 defineProps<{
-	newsByCountries: Data[]
-	sportNews: Data[]
+	newsByCountries: News[]
+	sportNews: News[]
 	from: number
 	to: number
 	from2: number
@@ -49,7 +49,7 @@ defineProps<{
 						<div class="text-gray300 medium text-lg">{{ formatDate2(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath(`/${slug}/${item.slug}`)"
-							class="medium text-black800 text-2xl line-clamp-2"
+							class="medium title"
 						>
 							{{ item.title }}
 						</NuxtLink>
@@ -74,7 +74,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="text-black800 medium text-2xl"
+								class="text-black800 medium text-2xl xl:hover:text-blue900 active:text-blue900"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -88,7 +88,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="text-black800 medium text-2xl"
+								class="text-black800 medium text-2xl xl:hover:text-blue900 active:text-blue900"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -131,7 +131,7 @@ defineProps<{
 						<div class="text-gray300 medium text-lg">{{ formatDate2(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath(`/${slug}/${item.slug}`)"
-							class="medium text-black800 text-2xl line-clamp-2"
+							class="medium title"
 						>
 							{{ item.title }}
 						</NuxtLink>
@@ -156,7 +156,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="text-black800 medium text-2xl"
+								class="text-black800 medium text-2xl xl:hover:text-blue900 active:text-blue900"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -170,7 +170,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="text-black800 medium text-2xl"
+								class="text-black800 medium text-2xl xl:hover:text-blue900 active:text-blue900"
 							>
 								{{ item.title }}
 							</NuxtLink>

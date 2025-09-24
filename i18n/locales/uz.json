@@ -10,11 +10,12 @@
 	"newsByCountries": "Mamlakatlar bo‘yicha yangiliklar",
 	"sportNews": "Sport yangiliklari",
 	"latestNews": "So‘nggi yangiliklar",
-	"seeAll": "Barchasini ko‘rish",
+	"seeAll": "Barchasi",
 	"mustRead": "O‘qilishi shart",
 	"feedback": "Fikr-mulohaza",
 	"name": "Toʻliq ism",
 	"email": "Elektron pochta",
 	"message": "Xabar",
-	"sendFeedback": "Fikr-mulohazani yuborish"
+	"sendFeedback": "Fikr-mulohazani yuborish",
+	"latestSportNews": "So‘nggi sport yangiliklari"
 }
