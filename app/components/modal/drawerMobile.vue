@@ -56,7 +56,7 @@ onUnmounted(() => {
 							leave-to="translate-x-full"
 						>
 							<DialogPanel class="pointer-events-auto w-screen max-w-md bg-white900 dark:bg-gray-700">
-								<div class="flex h-full flex-col overflow-y-auto pb-6 shadow-xl">
+								<div class="flex h-full flex-col shadow-xl">
 									<div class="p-2 sm:px-6 sticky z-10 top-0 shadow dark:bg-gray-800 bg-white900">
 										<div class="flex items-center justify-between">
 											<DialogTitle class="">
@@ -89,8 +89,9 @@ onUnmounted(() => {
 											</div>
 										</div>
 									</div>
-									<div class="relative mt-6 flex-1 px-2 sm:px-6 text-white90">
-										<slot />
+									<div class="relative pt-6 flex-1 px-2 sm:px-6 text-white90">
+										<slot name="menu" />
+										<slot name="absolute" />
 									</div>
 								</div>
 							</DialogPanel>

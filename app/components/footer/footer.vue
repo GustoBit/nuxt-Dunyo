@@ -8,8 +8,6 @@ const loading = useLoading()
 const getData = async () => {
 	loading.start()
 	await categoryStore.get()
-	console.log(hasSub.value)
-
 	loading.finish()
 }
 
