@@ -24,7 +24,7 @@ defineProps<{
 				:to="$localePath(`/`)"
 				class="flex items-center gap-3 w-fit"
 			>
-				<h1 class="semibold text-2xl lg:text-[32px] flex-1">
+				<h1 class="semibold text-xl lg:text-2xl xl:text-[32px] flex-1">
 					{{ $t('newsByCountries') }}
 				</h1>
 				<UIcon
@@ -59,7 +59,7 @@ defineProps<{
 							<div
 								v-for="(c, i) in item.category.slice(0, 2)"
 								:key="i"
-								class="select-none text-blue700 dark:text-blue600 light text-lg"
+								class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
 							>
 								{{ c }}
 							</div>
@@ -76,7 +76,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="medium text-2xl xl:hover:text-blue900 active:text-blue900"
+								class="medium text-xl lg:text-2xl xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -90,7 +90,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="medium text-2xl xl:hover:text-blue900 active:text-blue900"
+								class="medium text-xl lg:text-2xl xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -106,7 +106,7 @@ defineProps<{
 				:to="$localePath(`/`)"
 				class="flex items-center gap-3 w-fit"
 			>
-				<h1 class="semibold text-2xl lg:text-[32px] flex-1">
+				<h1 class="semibold text-xl lg:text-2xl xl:text-[32px] flex-1">
 					{{ title2 }}
 				</h1>
 				<UIcon
@@ -137,7 +137,7 @@ defineProps<{
 						>
 							{{ item.title }}
 						</NuxtLink>
-						<div class="select-none text-blue700 dark:text-blue600 light text-lg">#{{ item.category.title }}</div>
+						<div class="select-none text-blue700 dark:text-blue600 light sm:text-lg">#{{ item.category.title }}</div>
 					</div>
 				</div>
 
@@ -150,7 +150,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="medium text-2xl xl:hover:text-blue900 active:text-blue900 line-clamp-3"
+								class="medium text-xl lg:text-2xl xl:hover:text-blue900 active:text-blue900 line-clamp-3 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -164,7 +164,7 @@ defineProps<{
 						>
 							<NuxtLink
 								:to="$localePath(`/${slug}/${item.slug}`)"
-								class="medium text-2xl xl:hover:text-blue900 active:text-blue900 line-clamp-3"
+								class="medium text-xl lg:text-2xl xl:hover:text-blue900 active:text-blue900 line-clamp-3 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 							>
 								{{ item.title }}
 							</NuxtLink>

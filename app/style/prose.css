@@ -1,5 +1,5 @@
 .article__box {
-	@apply bg-white p-5 relative z-30;
+	@apply bg-transparent p-5 relative z-30;
 
 	p {
 		@apply text-justify text-[18px] font-normal leading-7;

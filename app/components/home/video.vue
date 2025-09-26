@@ -3,7 +3,18 @@ import type { Video } from '~/interface/interface'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
+import YouTube from 'vue3-youtube'
+
 const breaking = ref(Array(200).fill('Breaking News'))
+
+const isPlaying = ref<boolean>(false)
+const onPlayerStateChange = (event: { data: number }) => {
+	if (event?.data === 1) {
+		isPlaying.value = true
+	} else {
+		isPlaying.value = false
+	}
+}
 
 defineProps<{
 	data: Video[]
@@ -20,27 +31,26 @@ defineProps<{
 					class="mb-6 relative max-w-[1113px] mx-auto"
 				>
 					<div class="h-[240px] sm:h-[340px] mx-auto xl:w-[1113px] lg:!h-[575px] xl:mb-[56px] rounded-xl overflow-hidden">
-						<iframe
-							:src="item?.link"
-							width="100%"
+						<YouTube
+							ref="iframe"
+							:src="item.link || ''"
 							height="100%"
-							loading="lazy"
+							width="100%"
 							class="w-full h-full"
-							frameborder="0"
-							allowfullscreen
+							@state-change="onPlayerStateChange"
 						/>
 					</div>
-					<div class="hidden lg:block gradient rounded-b-xl">
+					<div :class="['hidden lg:block gradient rounded-b-xl transform transition duration-300 ease-in-out', isPlaying ? 'translate-y-1 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100']">
 						<NuxtLink
 							:to="$localePath(`/`)"
-							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700"
+							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 						>
 							{{ item.title }}
 						</NuxtLink>
 					</div>
 					<NuxtLink
 						:to="$localePath('/')"
-						class="text-white900 medium text-xl lg:hidden line-clamp-3 xl:hover:text-blue700 active:text-blue700 mt-2"
+						class="text-white900 medium text-xl lg:hidden line-clamp-3 xl:hover:text-blue700 active:text-blue700 mt-2 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 					>
 						{{ item.title }}
 					</NuxtLink>
@@ -52,7 +62,7 @@ defineProps<{
 						:key="item._id"
 					>
 						<div class="space-y-2 lg:space-y-4">
-							<div class="h-[240px] sm:h-[340px] xl:h-[282px] rounded-xl overflow-hidden">
+							<div class="h-[240px] xl:h-[200px] rounded-xl overflow-hidden">
 								<iframe
 									:src="item?.link"
 									width="100%"
@@ -65,7 +75,7 @@ defineProps<{
 							</div>
 							<NuxtLink
 								:to="$localePath('/')"
-								class="text-white900 medium text-xl lg:text-2xl line-clamp-3 xl:hover:text-blue700 active:text-blue700"
+								class="text-white900 medium text-xl lg:text-2xl line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 							>
 								{{ item.title }}
 							</NuxtLink>

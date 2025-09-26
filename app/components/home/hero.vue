@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'swiper/css/pagination'
+import 'swiper/css/effect-fade'
 
 import type { News } from '~/interface/interface'
 
@@ -19,23 +20,18 @@ defineProps<{
 		<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[318px_662px] gap-[27px]">
 			<div class="order-2 xl:order-none">
 				<Swiper
-					:style="{
-						'--swiper-pagination-color': '#4991ff',
-						'--swiper-pagination-bullet-inactive-color': '#4991ff',
-						'--swiper-pagination-bullet-inactive-opacity': '0.5',
-					}"
-					:modules="[Autoplay, Pagination]"
+					:modules="[Autoplay, EffectFade]"
 					:autoplay="{
 						delay: 3000,
 						disableOnInteraction: false,
 						pauseOnMouseEnter: true,
 					}"
-					:pagination="{ clickable: true, dynamicBullets: true }"
+					effect="fade"
 					:speed="800"
 					:loop="latest.length > 1"
 					:slides-per-view="1"
-					:space-between="10"
-					class=""
+					:space-between="0"
+					class="w-full h-full"
 				>
 					<SwiperSlide
 						v-for="item in latest"
@@ -52,12 +48,12 @@ defineProps<{
 						<div class="medium date">{{ useFormatDate()(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath(`/news-details/${item.slug}`)"
-							class="medium title"
+							class="medium title bg-gray-800"
 						>
 							{{ item.title }}
 						</NuxtLink>
 
-						<div class="select-none text-blue700 dark:text-blue600 light text-lg">#{{ item.category.title }}</div>
+						<div class="select-none text-blue700 dark:text-blue600 light sm:text-lg bg-gray-800">#{{ item.category.title }}</div>
 					</SwiperSlide>
 				</Swiper>
 			</div>
@@ -69,12 +65,13 @@ defineProps<{
 						'--swiper-pagination-bullet-inactive-color': '#fff',
 						'--swiper-pagination-bullet-inactive-opacity': '0.5',
 					}"
-					:modules="[Pagination, Autoplay]"
+					:modules="[Pagination, Autoplay, EffectFade]"
 					:autoplay="{
 						delay: 3000,
 						disableOnInteraction: false,
 						pauseOnMouseEnter: true,
 					}"
+					effect="fade"
 					:speed="800"
 					:loop="main.length > 1"
 					:slides-per-view="1"
@@ -96,7 +93,7 @@ defineProps<{
 							<div class="text-white500 medium text-lg">{{ useformatDate2()(item.date) }}</div>
 							<NuxtLink
 								:to="$localePath(`/news-details/${item.slug}`)"
-								class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700"
+								class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 							>
 								{{ item.title }}
 							</NuxtLink>
@@ -119,7 +116,7 @@ defineProps<{
 				>
 					{{ item.title }}
 				</NuxtLink>
-				<div class="select-none text-blue700 dark:text-blue600 light text-lg">#{{ item.category.title }}</div>
+				<div class="select-none text-blue700 dark:text-blue600 light sm:text-lg">#{{ item.category.title }}</div>
 			</div>
 		</div>
 	</div>

@@ -33,7 +33,7 @@ defineProps<{
 				</NuxtLink>
 				<div
 					v-if="item.category?.title"
-					class="select-none text-blue700 dark:text-blue600 light text-lg"
+					class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
 				>
 					#{{ item.category.title }}
 				</div>
@@ -48,7 +48,7 @@ defineProps<{
 			>
 				<NuxtLink
 					:to="$localePath(`/news-details/${item.slug || 'de'}`)"
-					class="medium text-2xl xl:hover:text-blue900 active:text-blue900 line-clamp-3"
+					class="medium text-xl lg:text-2xl xl:hover:text-blue900 active:text-blue900 line-clamp-3 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 				>
 					{{ item.title }}
 				</NuxtLink>

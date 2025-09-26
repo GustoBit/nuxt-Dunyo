@@ -43,7 +43,10 @@ const isDropdownOpen = computed(() => {
 </script>
 
 <template>
-	<div class="hidden xl:block relative flex-1 ml-9 mr-[26px]">
+	<div
+		class="hidden xl:block relative flex-1 ml-9 mr-[26px]"
+		@focusout="query = ''"
+	>
 		<Combobox @update:model-value="onSelect">
 			<div class="relative">
 				<UIcon
@@ -58,6 +61,15 @@ const isDropdownOpen = computed(() => {
 					autocomplete="off"
 					@change="query = $event.target.value"
 				/>
+				<button
+					:class="['absolute transform top-1/2 -translate-y-1/2 right-4 w-8 h-8 rounded-lg flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-500/20 transition duration-200 ease-in-out', query.length > 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none']"
+					@click="query = ''"
+				>
+					<UIcon
+						name="line-md:menu-to-close-transition"
+						class="w-5 h-5"
+					/>
+				</button>
 			</div>
 
 			<ComboboxOptions

@@ -11,11 +11,11 @@ export const useSearchStore = defineStore('search-news', () => {
 	const get = async (value: string) => {
 		try {
 			const res = await $api.get(`/api/search/?title=${value}&lang=${locale.value}&next=${page.value}`)
-			console.log('Search', res.data)
+			// console.log('Search', res.data)
 
 			// data.value = res.data
 			data.value = Array.isArray(res.data.news) ? res.data.news : []
-			console.log(data.value)
+			// console.log(data.value)
 		} catch (err) {
 			console.log('Error Category', err)
 		}

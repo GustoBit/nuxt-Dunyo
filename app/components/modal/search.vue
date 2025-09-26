@@ -1,63 +1,46 @@
 <script setup lang="ts">
 import { Combobox, ComboboxInput, ComboboxOptions, ComboboxOption, Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { useSearchStore } from '~/store/ui/search'
-import type { SearchItem } from '~/interface/interface'
+import { useSearchModalStore } from '~/store/ui/search'
+import { useSearchStore } from '~/store/data/search'
+import type { Search } from '~/interface/interface'
 
-const store = useSearchStore()
+const store = useSearchModalStore()
 const { show } = storeToRefs(store)
 
-const items = [
-	{
-		id: 1,
-		name: 'Homes',
-		description: 'Add freeform text with basic formatting options.',
-		url: 'home',
-		icon: 'heroicons:home',
-	},
-	{
-		id: 2,
-		name: 'Departments',
-		description: 'Add freeform text with basic formatting options.',
-		url: 'department',
-		icon: 'heroicons:building-library',
-	},
-	{
-		id: 3,
-		name: 'Users',
-		description: 'Add freeform text with basic formatting options.',
-		url: 'users',
-		icon: 'heroicons:users',
-	},
-	{
-		id: 4,
-		name: 'Languages',
-		description: 'Add freeform text with basic formatting options.',
-		url: 'language',
-		icon: 'heroicons:language',
-	},
-	{
-		id: 5,
-		name: 'Themes',
-		description: 'Add freeform text with basic formatting options.',
-		url: 'theme',
-		icon: 'heroicons:sun',
-	},
-]
+const searchStore = useSearchStore()
+const { data } = storeToRefs(searchStore)
 
 const query = ref('')
+
+const getData = async () => {
+	searchStore.get(query.value)
+}
+
+watch(query, (newVal) => {
+	searchStore.get(newVal)
+})
+
+onMounted(() => {
+	getData()
+})
+
 const filteredItems = computed(() =>
 	query.value === ''
 		? []
-		: items.filter((item) => {
-				return item.name.toLowerCase().includes(query.value.toLowerCase())
+		: data.value.filter((item) => {
+				return item.title.toLowerCase().includes(query.value.toLowerCase())
 			})
 )
+watch(query, (newVal) => {
+	query.value = newVal
+})
 
 const router = useRouter()
-
-const onSelect = (item: SearchItem): void => {
+const localePath = useLocalePath()
+const onSelect = (item: Search): void => {
+	if (!item) return
 	store.setShow(false)
-	router.push({ name: item.url })
+	router.push(localePath(`/news-details/${item.slug || 'de'}`))
 }
 </script>
 
@@ -119,24 +102,14 @@ const onSelect = (item: SearchItem): void => {
 								<ComboboxOption
 									v-for="item in filteredItems"
 									v-slot="{ active }"
-									:key="item.id"
+									:key="item._id"
 									:value="item"
 									as="template"
 								>
 									<li :class="['flex cursor-pointer select-none rounded-xl p-3', active && 'bg-gray-100 dark:bg-gray-500/20']">
-										<div :class="['flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-500']">
-											<UIcon
-												:name="item.icon"
-												class="!h-6 !w-6 text-white"
-												aria-hidden="true"
-											/>
-										</div>
-										<div class="ml-4 flex-auto">
-											<p class="text-sm im">
-												{{ item.name }}
-											</p>
-											<p class="text-sm ir">
-												{{ item.description }}
+										<div class="flex-auto">
+											<p class="medium text-lg">
+												{{ item.title }}
 											</p>
 										</div>
 									</li>

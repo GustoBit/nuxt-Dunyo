@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useSearchStore } from '~/store/ui/search'
-const searchStore = useSearchStore()
+import { useSearchModalStore } from '~/store/ui/search'
+const searchStore = useSearchModalStore()
 
 const isScrolled = ref(false)
 
@@ -27,10 +27,10 @@ onUnmounted(() => {
 						:to="$localePath('/')"
 						class="w-[169px] h-[44px] block"
 					>
-						<img
+						<NuxtImg
 							src="/logo.svg"
 							alt="Logo"
-							class="object-contain object-center w-full h-full"
+							class="img dark:brightness-0 dark:invert-100"
 						/>
 					</NuxtLink>
 

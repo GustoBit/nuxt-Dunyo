@@ -23,7 +23,7 @@ button {
 }
 
 .title {
-	@apply line-clamp-2 w-fit leading-tight text-2xl xl:hover:text-blue900 active:text-blue900;
+	@apply line-clamp-2 w-fit leading-tight text-lg lg:text-2xl xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300;
 }
 
 .date {

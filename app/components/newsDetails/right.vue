@@ -10,7 +10,7 @@ defineProps<{
 <template>
 	<div class="space-y-8">
 		<div class="space-y-5">
-			<h1 class="semibold leading-tight text-[28px]">{{ $t('latestSportNews') }}</h1>
+			<h1 class="semibold leading-tight text-xl lg:text-[28px]">{{ $t('latestSportNews') }}</h1>
 
 			<div class="space-y-4">
 				<div
@@ -27,7 +27,7 @@ defineProps<{
 					</NuxtLink>
 					<div
 						v-if="item.category.title"
-						class="select-none text-blue700 dark:text-blue600 light text-lg"
+						class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
 					>
 						#{{ item.category.title }}
 					</div>
@@ -77,7 +77,7 @@ defineProps<{
 					</NuxtLink>
 					<div
 						v-if="item.category.title"
-						class="select-none text-blue700 dark:text-blue600 light text-lg"
+						class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
 					>
 						#{{ item.category.title }}
 					</div>

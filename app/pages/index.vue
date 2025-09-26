@@ -31,6 +31,7 @@ const getData = async () => {
 	await tabsStore.get()
 	await videoStore.get()
 	await galleryStore.get()
+
 	loading.finish()
 }
 

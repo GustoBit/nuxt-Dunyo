@@ -44,6 +44,7 @@ definePageMeta({
 		<CategoryHero
 			:main="data.main_news"
 			:category-news="data.category_news"
+			:parent-category="data.parent_category"
 		/>
 		<CategoryMiddle :data="data.categories[0]?.news ?? []" />
 		<UiAds

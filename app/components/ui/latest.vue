@@ -11,7 +11,7 @@ defineProps<{
 <template>
 	<div class="space-y-4 lg:space-y-[26px]">
 		<div class="flex items-center justify-between gap-2">
-			<h1 class="semibold text-3xl sm:text-4xl lg:text-[42px]">{{ title }}</h1>
+			<h1 class="semibold text-xl sm:text-3xl lg:text-4xl xl:text-[42px]">{{ title }}</h1>
 
 			<NuxtLink
 				:to="$localePath('/')"

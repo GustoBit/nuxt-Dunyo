@@ -20,12 +20,12 @@ defineProps<{
 			<div class="pb-2 xl:pb-[26px] border-b-2 border-gray500 dark:border-gray-500/20">
 				<div class="flex items-center justify-between sm:justify-start sm:gap-5 lg:gap-[26px]">
 					<div class="text-gray600 dark:text-gray100 medium text-lg sm:text-2xl">{{ useformatDate2()(news.date) }}</div>
-					<div class="select-none text-blue700 dark:text-blue600 light text-lg">#{{ category.title }}</div>
+					<div class="select-none text-blue700 dark:text-blue600 light sm:text-lg">#{{ category.title }}</div>
 				</div>
 			</div>
 
 			<div
-				class=""
+				class="article__box"
 				v-html="news.content"
 			/>
 		</div>

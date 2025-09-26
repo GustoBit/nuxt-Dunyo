@@ -35,6 +35,7 @@ export interface Subs {
 	parent: string
 	main: boolean
 	img: string[]
+	link?: { name: Record<string, string>; to: string }[]
 }
 
 export interface NewsCategory {

@@ -24,7 +24,7 @@ const getData = async () => {
 		await newsStore.getNews(slug.value)
 	}
 	console.log(data.value)
-	console.log(data.value.latest)
+	// console.log(data.value.latest)
 
 	loading.finish()
 }
@@ -47,7 +47,7 @@ definePageMeta({
 		<UiNav />
 
 		<div class="mb-8 space-y-5 xl:space-y-9">
-			<h1 class="semibold text-3xl lg:text-4xl">{{ data.news.title }}</h1>
+			<h1 class="semibold text-lg lg:text-3xl xl:text-4xl">{{ data.news.title }}</h1>
 
 			<div class="grid gap-10 xl:gap-[26px] grid-cols-1 xl:grid-cols-[1fr_316px]">
 				<NewsDetailsLeft

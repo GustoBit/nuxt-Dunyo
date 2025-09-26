@@ -10,7 +10,7 @@ export const useGalleryStore = defineStore('gallery', () => {
 	const get = async () => {
 		try {
 			const { data } = await $api.get(`/api/photos/?next=${limit.value}&page=${page.value}&lang=${locale.value}`)
-			console.log('Gallery', data)
+			// console.log('Gallery', data)
 		} catch (err) {
 			console.log('Error Category', err)
 		}
