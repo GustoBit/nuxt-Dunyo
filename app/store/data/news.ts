@@ -63,6 +63,8 @@ export const useNewsStore = defineStore('slug-news', () => {
 		}
 	}
 
+	
+
 	return {
 		data,
 		getNews,

@@ -22,6 +22,7 @@
 		"@tailwindcss/vite": "^4.1.13",
 		"@unhead/vue": "^2.0.17",
 		"axios": "^1.12.2",
+		"better-sqlite3": "^12.4.1",
 		"eslint": "^9.36.0",
 		"flatpickr": "^4.6.13",
 		"nuxt": "^4.1.2",

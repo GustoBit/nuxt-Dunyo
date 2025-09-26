@@ -11,6 +11,8 @@ export const useCategoryStore = defineStore('category', () => {
 		try {
 			const { data } = await $api.get(`/api/category/all/?lang=${locale.value}`)
 			category.value = data
+			console.log(data);
+			
 			hasSub.value = [...data.filter((value: Category) => value.subs.length > 0)]
 		} catch (err) {
 			console.log('Error Category', err)

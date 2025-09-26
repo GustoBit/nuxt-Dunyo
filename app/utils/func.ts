@@ -27,6 +27,8 @@ function formatDate(date: Date): string {
 }
 
 function formatDate2(date: Date): string {
+	console.log('date',date);
+	
 	const { locale } = useI18n()
 	const day = String(date.getDate()).padStart(2, '0')
 	const monthIndex = date.getMonth()

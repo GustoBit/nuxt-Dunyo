@@ -1,4 +1,4 @@
-import type { News } from '~/interface/interface'
+import type { N, News } from '~/interface/interface'
 
 export const useMainStore = defineStore('main-news', () => {
 	const { $api } = useNuxtApp()
@@ -7,16 +7,22 @@ export const useMainStore = defineStore('main-news', () => {
 	const data = ref<{
 		main: News[]
 		actual: News[]
-		latest: News[]
+		latest: News[],
+		slider: N[]
 	}>({
 		main: [],
 		actual: [],
 		latest: [],
+		slider: []
 	})
+
+
 
 	const getMain = async () => {
 		try {
 			const res = await $api.get(`/api/news/main/?lang=${locale.value}`)
+			
+			
 			data.value.main = res.data
 			// console.log('Main', data.value.main)
 		} catch (err) {
@@ -44,7 +50,21 @@ export const useMainStore = defineStore('main-news', () => {
 		}
 	}
 
+	const slider = ref<News[]>([])
+	const getSliderNews = async () => {
+		try {
+			const {data} = await $api.get(`/api/news/slider/?lang=${locale.value}`)
+			console.log('Slider', data)
+			slider.value = data || []
+		} catch (err) {
+			console.log('Error Slider', err)
+		}
+	}
+
+
 	return {
+		slider,
+		getSliderNews,
 		data,
 		getMain,
 		getActual,
