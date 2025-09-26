@@ -6,7 +6,7 @@ const { open } = storeToRefs(drawerStore)
 
 <template>
 	<ModalDrawerMobile>
-		<div class="">Routing</div>
+		<UiDropdown />
 	</ModalDrawerMobile>
 
 	<button

@@ -48,12 +48,12 @@ defineProps<{
 						<div class="medium date">{{ useFormatDate()(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath(`/news-details/${item.slug}`)"
-							class="medium title bg-gray-800"
+							class="medium title dark:bg-gray-800 bg-white900"
 						>
 							{{ item.title }}
 						</NuxtLink>
 
-						<div class="select-none text-blue700 dark:text-blue600 light sm:text-lg bg-gray-800">#{{ item.category.title }}</div>
+						<div class="select-none text-blue700 dark:text-blue600 light sm:text-lg dark:bg-gray-800 bg-white900">#{{ item.category.title }}</div>
 					</SwiperSlide>
 				</Swiper>
 			</div>
