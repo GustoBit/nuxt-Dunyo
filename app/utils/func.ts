@@ -1,16 +1,16 @@
 const months = [
-	{ value: 0, translates: { en: 'January', ru: 'Январь', uz: 'Yanvar', 'uz-cyrl': 'Январ' } },
-	{ value: 1, translates: { en: 'February', ru: 'Февраль', uz: 'Fevral', 'uz-cyrl': 'Февраль' } },
-	{ value: 2, translates: { en: 'March', ru: 'Март', uz: 'Mart', 'uz-cyrl': 'Март' } },
-	{ value: 3, translates: { en: 'April', ru: 'Апрель', uz: 'Aprel', 'uz-cyrl': 'Апрель' } },
-	{ value: 4, translates: { en: 'May', ru: 'Май', uz: 'May', 'uz-cyrl': 'Май' } },
-	{ value: 5, translates: { en: 'June', ru: 'Июнь', uz: 'Iyun', 'uz-cyrl': 'Июн' } },
-	{ value: 6, translates: { en: 'July', ru: 'Июль', uz: 'Iyul', 'uz-cyrl': 'Июл' } },
-	{ value: 7, translates: { en: 'August', ru: 'Август', uz: 'Avgust', 'uz-cyrl': 'Август' } },
-	{ value: 8, translates: { en: 'September', ru: 'Сентябрь', uz: 'Sentabr', 'uz-cyrl': 'Сентябр' } },
-	{ value: 9, translates: { en: 'October', ru: 'Октябрь', uz: 'Oktabr', 'uz-cyrl': 'Октябр' } },
-	{ value: 10, translates: { en: 'November', ru: 'Ноябрь', uz: 'Noyabr', 'uz-cyrl': 'Ноябр' } },
-	{ value: 11, translates: { en: 'December', ru: 'Декабрь', uz: 'Dekabr', 'uz-cyrl': 'Декабр' } },
+	{ value: 0, translates: { en: 'January', ru: 'Январь', uz: 'Yanvar', uzk: 'Январ' } },
+	{ value: 1, translates: { en: 'February', ru: 'Февраль', uz: 'Fevral', uzk: 'Февраль' } },
+	{ value: 2, translates: { en: 'March', ru: 'Март', uz: 'Mart', uzk: 'Март' } },
+	{ value: 3, translates: { en: 'April', ru: 'Апрель', uz: 'Aprel', uzk: 'Апрель' } },
+	{ value: 4, translates: { en: 'May', ru: 'Май', uz: 'May', uzk: 'Май' } },
+	{ value: 5, translates: { en: 'June', ru: 'Июнь', uz: 'Iyun', uzk: 'Июн' } },
+	{ value: 6, translates: { en: 'July', ru: 'Июль', uz: 'Iyul', uzk: 'Июл' } },
+	{ value: 7, translates: { en: 'August', ru: 'Август', uz: 'Avgust', uzk: 'Август' } },
+	{ value: 8, translates: { en: 'September', ru: 'Сентябрь', uz: 'Sentabr', uzk: 'Сентябр' } },
+	{ value: 9, translates: { en: 'October', ru: 'Октябрь', uz: 'Oktabr', uzk: 'Октябр' } },
+	{ value: 10, translates: { en: 'November', ru: 'Ноябрь', uz: 'Noyabr', uzk: 'Ноябр' } },
+	{ value: 11, translates: { en: 'December', ru: 'Декабрь', uz: 'Dekabr', uzk: 'Декабр' } },
 ]
 
 function formatDate(date: Date): string {

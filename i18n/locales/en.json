@@ -2,6 +2,7 @@
 	"home": "Home",
 	"contacts": "Contacts",
 	"newsDetails": "News Details",
+	"category": "Category",
 
 	"search": "Search for news ...",
 	"no_result": "No results found!",
@@ -17,5 +18,6 @@
 	"email": "Email",
 	"message": "Message",
 	"sendFeedback": "Send feedback",
-	"latestSportNews": "Latest sport news"
+	"latestSportNews": "Latest sport news",
+	"actualNews": "Actual news"
 }

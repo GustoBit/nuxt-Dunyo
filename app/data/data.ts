@@ -1,7 +1,7 @@
-import type { News } from '~/interface/interface'
+import type { N } from '~/interface/interface'
 import image from '@/assets/img/image.jpg'
 
-const data = ref<News>({
+const data = ref<N>({
 	_id: '1',
 	title: '‘Uzbekistan reach Asian Cup knockouts after an 87’ winner’',
 	img: image,
@@ -13,7 +13,7 @@ const data = ref<News>({
 	read: '4 min read',
 })
 
-const latestNews = ref<News[]>([
+const latestNews = ref<N[]>([
 	{
 		_id: '1',
 		title: 'Education Reform to Digitize All High Schools by 2027',

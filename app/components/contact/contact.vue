@@ -25,7 +25,7 @@ const links = ref([
 
 <template>
 	<div class="space-y-6 lg:space-y-8">
-		<h1 class="text-black800 semibold text-3xl lg:text-[36px]">{{ $t('contacts') }}</h1>
+		<h1 class="semibold text-3xl lg:text-[36px]">{{ $t('contacts') }}</h1>
 
 		<div class="space-y-6 lg:space-y-8">
 			<a
@@ -36,13 +36,13 @@ const links = ref([
 				rel="noopener noreferrer"
 				class="flex items-center gap-2 lg:gap-4 w-fit group"
 			>
-				<span class="bg-[#EFF0F2] w-10 h-10 lg:w-14 lg:h-14 rounded-full flex items-center justify-center">
+				<span class="bg-[#EFF0F2] dark:bg-gray-500/20 w-10 h-10 lg:w-14 lg:h-14 rounded-full flex items-center justify-center">
 					<UIcon
 						:name="item.icon"
-						class="w-5 h-5 lg:w-8 lg:h-8 text-blue900"
+						class="w-5 h-5 lg:w-8 lg:h-8 text-blue900 dark:text-white800 xl:dark:group-hover:text-blue900 dark:group-active:text-blue900"
 					/>
 				</span>
-				<p class="flex-1 text-gray200 regular text-lg lg:text-xl xl:group-hover:text-blue900 group-active:text-blue900">{{ item.name }}</p>
+				<p class="flex-1 text-gray200 regular text-lg lg:text-xl xl:group-hover:text-blue900 group-active:text-blue900 dark:text-white800">{{ item.name }}</p>
 			</a>
 		</div>
 

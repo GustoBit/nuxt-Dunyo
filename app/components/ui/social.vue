@@ -25,11 +25,11 @@ const nav = ref<Social[]>([
 			:href="item.url"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="w-8 h-8 rounded-lg flex items-center justify-center border border-white600 xl:hover:bg-white600 active:bg-white600"
+			class="w-8 h-8 rounded-lg flex items-center justify-center border border-white600 dark:border-gray-500/20 xl:hover:bg-white600 active:bg-white600 xl:dark:hover:bg-gray-500/20 dark:active:bg-gray-500/20"
 		>
 			<img
 				:src="item.img"
-				class="w-5 h-5 object-cover object-center"
+				class="w-5 h-5 object-cover object-center dark:brightness-100 dark:invert"
 			/>
 		</a>
 	</div>

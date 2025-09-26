@@ -27,7 +27,7 @@ const handleFocus = () => {
 		:placeholder="$t(`${placeholder}`)"
 		:type="type"
 		:autocomplete="autocomplete"
-		:class="['w-full p-2 lg:p-4 rounded-lg placeholder:gray200 placeholder:text-base lg:placeholder:text-xl regular text-lg lg:text-xl border-0 outline-none ring-1 ring-inset focus:ring-2 focus:ring-blue600', error ? 'ring-red-500' : 'ring-white600']"
+		:class="['w-full p-2 lg:p-4 rounded-lg placeholder:gray200 placeholder:text-base lg:placeholder:text-xl regular text-lg lg:text-xl border-0 outline-none ring-1 ring-inset focus:ring-2 focus:ring-blue600', error ? 'ring-red-500' : 'ring-white600 dark:ring-gray-500/20']"
 		@focus="handleFocus"
 	/>
 </template>

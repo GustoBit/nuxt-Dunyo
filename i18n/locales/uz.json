@@ -2,6 +2,7 @@
 	"home": "Bosh Sahifa",
 	"contacts": "Kontaktlar",
 	"newsDetails": "Yangilik tafsilotlari",
+	"category": "Kategoriya",
 
 	"search": "Yangiliklarni qidirish ...",
 	"no_result": "Natija topilmadi!",
@@ -17,5 +18,6 @@
 	"email": "Elektron pochta",
 	"message": "Xabar",
 	"sendFeedback": "Fikr-mulohazani yuborish",
-	"latestSportNews": "So‘nggi sport yangiliklari"
+	"latestSportNews": "So‘nggi sport yangiliklari",
+	"actualNews": "Dolzarb yangiliklar"
 }

@@ -95,7 +95,7 @@ const onSelect = (item: SearchItem): void => {
 					leave-from="opacity-100 scale-100"
 					leave-to="opacity-0 scale-95"
 				>
-					<DialogPanel :class="['mx-auto max-w-6xl transform divide-y divide-white600 overflow-hidden rounded-xl shadow-2xl ring-1 ring-white600 ring-opacity-5 transition-all bg-white900']">
+					<DialogPanel :class="['mx-auto max-w-6xl transform divide-y divide-white600 dark:divide-gray-500/20 overflow-hidden rounded-xl shadow-2xl ring-1 ring-white600 dark:ring-gray-500/20 ring-opacity-5 transition-all bg-white900 dark:bg-gray-700']">
 						<Combobox @update:model-value="onSelect">
 							<div class="relative">
 								<UIcon
@@ -123,7 +123,7 @@ const onSelect = (item: SearchItem): void => {
 									:value="item"
 									as="template"
 								>
-									<li :class="['flex cursor-pointer select-none rounded-xl p-3', active && 'bg-gray-100']">
+									<li :class="['flex cursor-pointer select-none rounded-xl p-3', active && 'bg-gray-100 dark:bg-gray-500/20']">
 										<div :class="['flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-500']">
 											<UIcon
 												:name="item.icon"

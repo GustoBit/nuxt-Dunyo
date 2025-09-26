@@ -9,7 +9,7 @@ defineProps<{
 		<div
 			v-for="(c, i) in category.slice(0, 2)"
 			:key="i"
-			class="select-none text-blue700 light text-lg"
+			class="select-none text-blue700 dark:text-blue600 light text-lg"
 		>
 			{{ c }}
 		</div>

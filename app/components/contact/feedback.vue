@@ -8,7 +8,7 @@ const data = ref({
 
 <template>
 	<div class="flex flex-col gap-6 lg:gap-8">
-		<h1 class="text-black800 semibold text-3xl lg:text-[36px]">{{ $t('feedback') }}</h1>
+		<h1 class="semibold text-3xl lg:text-[36px]">{{ $t('feedback') }}</h1>
 		<div class="space-y-4">
 			<UiInput
 				v-model="data.name"

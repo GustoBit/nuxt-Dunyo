@@ -39,7 +39,7 @@ const position = computed(() => {
 			:class="['cursor-pointer absolute bg-yellow500 rounded-[50px] py-2 px-[26px] xl:hover:bg-yellow500/90 active:bg-yellow500/90', position]"
 			@click="click()"
 		>
-			<p class="text-black800 medium text-xl lg:text-2xl">Ads</p>
+			<p class="medium text-xl lg:text-2xl">Ads</p>
 		</button>
 	</div>
 </template>

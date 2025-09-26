@@ -55,9 +55,9 @@ onUnmounted(() => {
 							leave-from="translate-x-0"
 							leave-to="translate-x-full"
 						>
-							<DialogPanel class="pointer-events-auto w-screen max-w-md bg-white900">
+							<DialogPanel class="pointer-events-auto w-screen max-w-md bg-white900 dark:bg-gray-700">
 								<div class="flex h-full flex-col overflow-y-auto pb-6 shadow-xl">
-									<div class="py-2 px-4 sm:px-6 sticky z-10 top-0 shadow">
+									<div class="p-2 sm:px-6 sticky z-10 top-0 shadow">
 										<div class="flex items-center justify-between">
 											<DialogTitle class="">
 												<NuxtLink
@@ -72,10 +72,11 @@ onUnmounted(() => {
 												</NuxtLink>
 											</DialogTitle>
 
-											<div class="ml-3 flex h-7 items-center">
+											<div class="ml-3 flex h-7 items-center gap-3">
+												<HeaderColor />
 												<button
 													type="button"
-													class="cursor-pointer flex items-center justify-center w-9 h-9 border border-green90 dark:border-gray-500/20 dark:active:bg-gray-500/20 dark:active:border-gray-500/20 rounded-lg p-1 active:bg-green70 active:border-gray-200"
+													class="cursor-pointer flex items-center justify-center w-10 h-10 border border-green90 dark:border-gray-500/20 dark:active:bg-gray-500/20 dark:active:border-gray-500/20 rounded-lg p-1 active:bg-green70 active:border-gray-200"
 													@click="drawerStore.setOpen()"
 												>
 													<span class="sr-only">Close panel</span>

@@ -1,52 +1,29 @@
 <script setup lang="ts">
 import { Combobox, ComboboxInput, ComboboxOptions, ComboboxOption } from '@headlessui/vue'
-import type { SearchItem } from '~/interface/interface'
+import type { Search } from '~/interface/interface'
+import { useSearchStore } from '~/store/data/search'
+const searchStore = useSearchStore()
+const { data } = storeToRefs(searchStore)
 
-const items = [
-	{
-		id: 1,
-		name: 'Homes',
-		description: 'Add freeform text with basic formatting options.',
-		url: '',
-		icon: 'heroicons:home',
-	},
-	{
-		id: 2,
-		name: 'Departments',
-		description: 'Add freeform text with basic formatting options.',
-		url: '',
-		icon: 'heroicons:building-library',
-	},
-	{
-		id: 3,
-		name: 'Users',
-		description: 'Add freeform text with basic formatting options.',
-		url: '',
-		icon: 'heroicons:users',
-	},
-	{
-		id: 4,
-		name: 'Languages',
-		description: 'Add freeform text with basic formatting options.',
-		url: '',
-		icon: 'heroicons:language',
-	},
-	{
-		id: 5,
-		name: 'Themes',
-		description: 'Add freeform text with basic formatting options.',
-		url: '',
-		icon: 'heroicons:sun',
-	},
-]
-
-const search = ref('')
 const query = ref('')
+
+const getData = async () => {
+	searchStore.get(query.value)
+}
+
+watch(query, (newVal) => {
+	searchStore.get(newVal)
+})
+
+onMounted(() => {
+	getData()
+})
+
 const filteredItems = computed(() =>
 	query.value === ''
 		? []
-		: items.filter((item) => {
-				return item.name.toLowerCase().includes(query.value.toLowerCase())
+		: data.value.filter((item) => {
+				return item.title.toLowerCase().includes(query.value.toLowerCase())
 			})
 )
 watch(query, (newVal) => {
@@ -54,13 +31,14 @@ watch(query, (newVal) => {
 })
 
 const router = useRouter()
-
-const onSelect = (item: SearchItem): void => {
-	router.push({ name: item.url })
+const localePath = useLocalePath()
+const onSelect = (item: Search): void => {
+	if (!item) return
+	router.push(localePath(`/news-details/${item.slug || 'de'}`))
 }
 
 const isDropdownOpen = computed(() => {
-	return filteredItems.value.length > 0 || (query.value !== '' && filteredItems.value.length === 0)
+	return query.value !== '' && (filteredItems.value.length > 0 || filteredItems.value.length === 0)
 })
 </script>
 
@@ -74,8 +52,8 @@ const isDropdownOpen = computed(() => {
 					aria-hidden="true"
 				/>
 				<ComboboxInput
-					v-model="search"
-					:class="['w-full border-[1.5px] border-white600 pl-[45px] p-3 text-lg regular', isDropdownOpen ? 'rounded-b-0 rounded-t-3xl' : 'rounded-[30px]', 'focus:outline-none focus:shadow-md', 'placeholder:text-gray100']"
+					v-model="query"
+					:class="['w-full border-[1.5px] border-white600 dark:border-gray-500/20 pl-[45px] p-3 text-lg regular', isDropdownOpen ? 'rounded-b-0 rounded-t-3xl' : 'rounded-[30px]', 'focus:outline-none focus:shadow-md', 'placeholder:text-gray100']"
 					:placeholder="$t('search')"
 					autocomplete="off"
 					@change="query = $event.target.value"
@@ -85,29 +63,19 @@ const isDropdownOpen = computed(() => {
 			<ComboboxOptions
 				v-if="filteredItems.length > 0"
 				static
-				class="max-h-[500px] scroll-py-3 overflow-y-auto p-3 absolute top-full left-0 right-0 bg-white800 shadow-xl rounded-b-[30px]"
+				class="max-h-[500px] scroll-py-3 overflow-y-auto p-3 absolute top-full left-0 right-0 shadow-xl rounded-b-[30px] bg-gradient-to-b from-white900/80 via-white900/90 to-white900 dark:from-gray-800/80 dark:via-gray-800/90 dark:to-gray-800"
 			>
 				<ComboboxOption
 					v-for="item in filteredItems"
 					v-slot="{ active }"
-					:key="item.id"
+					:key="item._id"
 					:value="item"
 					as="template"
 				>
-					<li :class="['flex cursor-pointer select-none rounded-xl p-3', active && 'bg-gray-100']">
-						<div :class="['flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-500']">
-							<UIcon
-								:name="item.icon"
-								class="h-6 w-6 text-white"
-								aria-hidden="true"
-							/>
-						</div>
-						<div class="ml-4 flex-auto">
-							<p class="text-sm im">
-								{{ item.name }}
-							</p>
-							<p class="text-sm ir">
-								{{ item.description }}
+					<li :class="['flex cursor-pointer select-none rounded-xl p-3', active && 'bg-gray-200 dark:bg-gray-500/20']">
+						<div class="flex-auto">
+							<p class="medium text-xl">
+								{{ item.title }}
 							</p>
 						</div>
 					</li>
@@ -116,7 +84,7 @@ const isDropdownOpen = computed(() => {
 
 			<div
 				v-if="query !== '' && filteredItems.length === 0"
-				class="px-6 py-14 text-center text-sm sm:px-14 absolute top-full left-0 right-0 bg-white800 shadow-xl rounded-b-[30px]"
+				class="px-6 py-14 text-center text-sm sm:px-14 absolute top-full left-0 right-0 shadow-xl rounded-b-[30px] bg-gradient-to-b from-white900/80 via-white900/90 to-white900 dark:from-gray-800/80 dark:via-gray-800/90 dark:to-gray-800"
 			>
 				<UIcon
 					name="heroicons-outline:exclaimation-triangle"

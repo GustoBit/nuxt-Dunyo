@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 			{ code: 'uz', file: 'uz.json', name: 'Uz', language: 'uz-UZ' },
 			{ code: 'en', file: 'en.json', name: 'En', language: 'en-US' },
 			{ code: 'ru', file: 'ru.json', name: 'Ru', language: 'ru-RU' },
-			{ code: 'uz-cyrl', file: 'uz-cyrl.json', name: 'Ўз', language: 'uz-UZ' },
+			{ code: 'uzk', file: 'uz-cyrl.json', name: 'Ўз', language: 'uz-UZ' },
 		],
 	},
 })

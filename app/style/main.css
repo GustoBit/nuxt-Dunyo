@@ -1,5 +1,5 @@
 body {
-	@apply bg-white900;
+	@apply bg-white900 text-black800 dark:bg-gray-800 dark:text-white900;
 }
 
 .container {
@@ -23,11 +23,15 @@ button {
 }
 
 .title {
-	@apply line-clamp-2 w-fit leading-tight text-black800 text-2xl xl:hover:text-blue900 active:text-blue900;
+	@apply line-clamp-2 w-fit leading-tight text-2xl xl:hover:text-blue900 active:text-blue900;
 }
 
 .date {
-	@apply text-gray300 text-lg;
+	@apply text-gray300 dark:text-gray100 text-lg;
+}
+
+.see {
+	@apply text-blue400 dark:text-blue600 xl:dark:hover:text-blue700 text-lg sm:text-xl xl:hover:text-blue900 active:text-blue900 dark:active:text-blue700;
 }
 
 @theme {
@@ -59,4 +63,4 @@ button {
 	--color-yellow500: #ffe500;
 }
 
-/* ####E8E9EB */
+/* #####14181F */

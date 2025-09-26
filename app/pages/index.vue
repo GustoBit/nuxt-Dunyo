@@ -1,6 +1,47 @@
 <script setup lang="ts">
 import { latestNews } from '~/data/data'
 
+import { useLanguageStore } from '~/store/data/language'
+import { useMainStore } from '~/store/data/main'
+import { useTabsStore } from '~/store/data/tabs'
+import { useVideoStore } from '~/store/data/video'
+import { useGalleryStore } from '~/store/data/gallery'
+const galleryStore = useGalleryStore()
+
+const { locale } = useI18n()
+
+const videoStore = useVideoStore()
+const { video } = storeToRefs(videoStore)
+
+const tabsStore = useTabsStore()
+const { important, latest, popular } = storeToRefs(tabsStore)
+
+const mainStore = useMainStore()
+const { data } = storeToRefs(mainStore)
+
+const languageStore = useLanguageStore()
+const loading = useLoading()
+
+const getData = async () => {
+	loading.start()
+	await mainStore.getActual()
+	await mainStore.getLatest()
+	await mainStore.getMain()
+	await languageStore.language()
+	await tabsStore.get()
+	await videoStore.get()
+	await galleryStore.get()
+	loading.finish()
+}
+
+watch(locale, () => {
+	getData()
+})
+
+onMounted(() => {
+	getData()
+})
+
 definePageMeta({
 	title: 'home',
 })
@@ -9,10 +50,16 @@ definePageMeta({
 <template>
 	<div class="container">
 		<UiNav />
-		<HomeHero :data="latestNews" />
+		<HomeHero
+			:main="data.main"
+			:latest="data.latest"
+			:actual="data.actual"
+		/>
 		<UiNews
 			:news-by-countries="latestNews"
-			:sport-news="latestNews"
+			:sport-news="popular.data"
+			:title2="popular.title"
+			:slug2="popular.slug"
 			:from="2"
 			:to="5"
 			:from2="5"
@@ -20,23 +67,31 @@ definePageMeta({
 			slug="news-details"
 			clas="mb-[72px]"
 		/>
-		<HomeVideo />
+		<HomeVideo :data="video" />
 		<UiAds
 			:style="`mb-14 h-[180px] lg:h-[263px]`"
 			position-btn="26"
 		/>
 		<div class="mb72">
 			<UiLatest
-				:data="latestNews"
+				:data="latest.data"
+				:title="latest.title"
+				:slug="latest.slug"
 				:from="0"
 				:to="4"
 			/>
 		</div>
-		<HomeMustRead :data="latestNews" />
+		<HomeMustRead
+			:data="important.data"
+			:title="important.title"
+			:slug="important.slug"
+		/>
 		<UiNews
 			slug="news-details"
 			:news-by-countries="latestNews"
-			:sport-news="latestNews"
+			:sport-news="popular.data"
+			:title2="popular.title"
+			:slug2="popular.slug"
 			:from="2"
 			:to="4"
 			:from2="4"

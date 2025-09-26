@@ -12,7 +12,7 @@ useHead(() => {
 </script>
 
 <template>
-	<div class="flex flex-col h-full">
+	<div class="flex flex-col">
 		<Header />
 		<main>
 			<slot />

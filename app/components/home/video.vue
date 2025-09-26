@@ -1,119 +1,77 @@
 <script setup lang="ts">
+import type { Video } from '~/interface/interface'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Thumbs, Autoplay } from 'swiper/modules'
-import type { Swiper as SwiperClass } from 'swiper'
+import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
-import img from '~/assets/img/img.jpg'
 const breaking = ref(Array(200).fill('Breaking News'))
 
-const thumbsSwiper = ref<SwiperClass | null>(null)
-
-const setThumbsSwiper = (swiper: SwiperClass) => {
-	thumbsSwiper.value = swiper
-}
-
-const data = ref([
-	{
-		_id: '1',
-		title: '‘Explosion Reported in Tashkent’s Central District’',
-		img: img,
-	},
-	{
-		_id: '2',
-		title: '‘Explosion Reported in Tashkent’s Central District’',
-		img: img,
-	},
-	{
-		_id: '3',
-		title: '‘Uzbekistan’s Economy Grows 5.3% in Q2’',
-		img: img,
-	},
-	{
-		_id: '4',
-		title: '‘Tashkent Becomes Regional Hub for Startups’',
-		img: img,
-	},
-	{
-		_id: '5',
-		title: '‘Global Protests Erupt Over Climate Inaction’',
-		img: img,
-	},
-])
+defineProps<{
+	data: Video[]
+}>()
 </script>
 
 <template>
 	<ClientOnly>
 		<div class="px-4 py-10 lg:px-8 lg:py-[74px] relative rounded-[26px] overflow-hidden bg-gradient-to-b from-blue600 to-blue500 mb-[52px]">
 			<div class="relative z-10">
-				<ClientOnly>
-					<Swiper
-						:space-between="10"
-						:navigation="false"
-						:thumbs="{ swiper: thumbsSwiper }"
-						:loop="true"
-						:modules="[Navigation, Thumbs]"
-						class="mb-6 w-11/12 h-[240px] sm:h-[340px] xl:w-[1113px] lg:!h-[575px] xl:mb-[56px] rounded-xl overflow-hidden"
-					>
-						<SwiperSlide
-							v-for="item in data"
-							:key="item._id"
+				<div
+					v-for="item in data.slice(0, 1)"
+					:key="item._id"
+					class="mb-6 relative max-w-[1113px] mx-auto"
+				>
+					<div class="h-[240px] sm:h-[340px] mx-auto xl:w-[1113px] lg:!h-[575px] xl:mb-[56px] rounded-xl overflow-hidden">
+						<iframe
+							:src="item?.link"
+							width="100%"
+							height="100%"
+							loading="lazy"
+							class="w-full h-full"
+							frameborder="0"
+							allowfullscreen
+						/>
+					</div>
+					<div class="hidden lg:block gradient rounded-b-xl">
+						<NuxtLink
+							:to="$localePath(`/`)"
+							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700"
 						>
-							<img
-								:src="item.img"
-								alt=""
-								class="object-cover object-center w-full h-full"
-							/>
-						</SwiperSlide>
-					</Swiper>
-				</ClientOnly>
+							{{ item.title }}
+						</NuxtLink>
+					</div>
+					<NuxtLink
+						:to="$localePath('/')"
+						class="text-white900 medium text-xl lg:hidden line-clamp-3 xl:hover:text-blue700 active:text-blue700 mt-2"
+					>
+						{{ item.title }}
+					</NuxtLink>
+				</div>
 
-				<!-- THUMBS -->
-				<ClientOnly>
-					<Swiper
-						v-if="data.length > 1"
-						:space-between="26"
-						:slides-per-view="2"
-						:watch-slides-progress="true"
-						:breakpoints="{
-							768: {
-								slidesPerView: 2,
-							},
-							1024: {
-								slidesPerView: 3,
-							},
-							1280: {
-								slidesPerView: 4,
-							},
-						}"
-						:modules="[Navigation, Thumbs]"
-						class="!h-fit mySwiper"
-						@swiper="setThumbsSwiper"
+				<div class="grid grid-cols-1 gap-[26px] lg:grid-cols-2 xl:grid-cols-4">
+					<div
+						v-for="item in data.slice(1, 5)"
+						:key="item._id"
 					>
-						<SwiperSlide
-							v-for="item in data"
-							:key="item._id"
-						>
-							<div class="space-y-2 lg:space-y-4">
-								<div class="h-[120px] sm:h-[200px] xl:h-[282px] rounded-xl overflow-hidden">
-									<img
-										:src="item.img"
-										alt=""
-										class="object-cover object-center w-full h-full block"
-									/>
-								</div>
-								<NuxtLink
-									:to="$localePath('/')"
-									class="text-white900 medium sm:text-xl lg:text-2xl"
-								>
-									{{ item.title }}
-								</NuxtLink>
+						<div class="space-y-2 lg:space-y-4">
+							<div class="h-[240px] sm:h-[340px] xl:h-[282px] rounded-xl overflow-hidden">
+								<iframe
+									:src="item?.link"
+									width="100%"
+									height="100%"
+									loading="lazy"
+									class="w-full h-full"
+									frameborder="0"
+									allowfullscreen
+								/>
 							</div>
-						</SwiperSlide>
-					</Swiper>
-				</ClientOnly>
+							<NuxtLink
+								:to="$localePath('/')"
+								class="text-white900 medium text-xl lg:text-2xl line-clamp-3 xl:hover:text-blue700 active:text-blue700"
+							>
+								{{ item.title }}
+							</NuxtLink>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="Swiper absolute z-0 top-0 xl:-top-16 left-0 right-0 select-none pointer-events-none">
