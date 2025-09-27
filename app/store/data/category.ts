@@ -1,4 +1,4 @@
-import type { Category, SlugCategory } from '~/interface/interface'
+import type { Category, CategoryNew, SlugCategory } from '~/interface/interface'
 
 export const useCategoryStore = defineStore('category', () => {
 	const { $api } = useNuxtApp()
@@ -70,8 +70,70 @@ export const useCategoryStore = defineStore('category', () => {
 	const getSecondCats = async (slug: string) => {
 		try {
 			const res = await $api.get(`/api/category/tabs/${slug}/?lang=${locale.value}`)
-			console.log('Second Res', res.data)
+			// console.log('Second Res', res.data)
 			data.value = res.data
+		} catch (err) {
+			console.log('Error Category', err)
+		}
+	}
+
+	const categoryNews = ref<CategoryNew>({
+		actual: {			
+			actual: false,
+			chanel: false,
+			category: {
+				img: [],
+				main: false,
+				parent: '',
+				slug: '',
+				status: false,
+				title: '',
+				__v: 0,
+				_id: '',
+			},			
+			content: '',
+			date: '',
+			img: '',
+			important_dates: false,
+			main: false,
+			post_date: null,
+			slider: false,
+			slug: '',
+			status: false,
+			subcategory: null,
+			telegram: false,
+			text: '',
+			title: '',
+			views: 0,
+			__v: 0,
+			_id: '',
+		},
+		news: [],
+		category: {
+			img: [],
+			main: false,
+			parent: null,
+			slug: '',
+
+			status: false,
+			title: '',
+			__v: 0,
+			_id: '',
+		},
+
+	})
+	const getCategoryNews = async (slug: string, page: number = 1) => {
+		try {
+			const {data} = await $api.get(`/api/category/get/${slug}/`,{params: {lang: locale.value, page}})
+			console.log('cat', data)
+			// data.value = data || {}
+			categoryNews.value = {
+				actual: data?.actual || data.news?.at(0),
+				news: data?.actual?._id ? data.news?.filter(n => n._id !== data.actual._id) : data.news?.slice(1),
+				category: data.category,				
+			}
+			console.log('CategoryNews', categoryNews.value);
+			
 		} catch (err) {
 			console.log('Error Category', err)
 		}
@@ -80,6 +142,8 @@ export const useCategoryStore = defineStore('category', () => {
 	return {
 		category,
 		hasSub,
+		categoryNews,
+		getCategoryNews,
 		get,
 		getFirstCats,
 		getSecondCats,

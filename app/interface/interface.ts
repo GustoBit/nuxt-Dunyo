@@ -23,7 +23,7 @@ export interface Category {
 	parent: null
 	main: boolean
 	img: string[]
-	subs: Subs[]
+	subs?: Subs[]
 }
 
 export interface Subs {
@@ -38,13 +38,13 @@ export interface Subs {
 }
 
 export interface NewsCategory {
-	img: string[]
-	main: boolean
-	parent: string
+	img?: string[]
+	main?: boolean
+	parent?: string
 	slug: string
-	status: boolean
-	title: string
-	__v: number
+	status?: boolean
+	title?: string
+	__v?: number
 	_id: string
 }
 
@@ -53,7 +53,7 @@ export interface News {
 	actual: boolean
 	chanel: boolean
 	content: string
-	country: string
+	country?: string
 	date: string
 	img: string
 	important_dates: boolean
@@ -220,10 +220,17 @@ export interface ParentCategory {
 }
 
 export interface SlugCategory {
-	categories: Categories[]
-	category_news: CategoryNews[]
-	main_news: MainNews
-	parent_category: ParentCategory
+	categories?: Categories[]
+	category_news?: CategoryNews[]
+	main_news?: MainNews
+	news?: MainNews
+	parent_category?: ParentCategory
+}
+
+export interface CategoryNew {
+	actual: News,
+	news: News[],
+	category: Category
 }
 
 export interface Search {
