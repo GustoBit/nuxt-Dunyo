@@ -1,59 +1,56 @@
 <script setup lang="ts">
-import type { News } from "~/interface/interface";
-import { useCategoryStore } from "~/store/data/category";
-const categoryStore = useCategoryStore();
-const { data, categoryNews } = storeToRefs(categoryStore);
+import type { News } from '~/interface/interface'
+import { useCategoryStore } from '~/store/data/category'
+const categoryStore = useCategoryStore()
+const { categoryNews } = storeToRefs(categoryStore)
 
-const route = useRoute();
-const { locale } = useI18n();
+const route = useRoute()
+const { locale } = useI18n()
 
-const slug = ref(route.params?.slug);
+const slug = ref(route.params?.slug)
 watch(
-  () => route.params.slug,
-  (newVal) => {
-    slug.value = newVal;
-    // console.log('NewVal', newVal)
-    getData();
-  }
-);
+	() => route.params.slug,
+	(newVal) => {
+		slug.value = newVal
+		// console.log('NewVal', newVal)
+		getData()
+	}
+)
 
-const loading = useLoading();
+const loading = useLoading()
 const getData = async () => {
-  loading.start();
-  if (typeof slug.value == "string") {
-    // await categoryStore.getSecondCats(slug.value);
-    await categoryStore.getCategoryNews(slug.value);
-    // await categoryStore.getParentCategory(slug.value);
-  }
-  loading.finish();
-};
+	loading.start()
+	if (typeof slug.value == 'string') {
+		// await categoryStore.getSecondCats(slug.value);
+		await categoryStore.getCategoryNews(slug.value)
+		// await categoryStore.getParentCategory(slug.value);
+	}
+	loading.finish()
+}
 
 watch(locale, () => {
-  getData();
-});
+	getData()
+})
 
 onMounted(() => {
-  getData();
-});
+	getData()
+})
 
 definePageMeta({
-  title: "category",
-});
+	title: 'category',
+})
 </script>
 
 <template>
-  <div class="container">
-    <UiNav />
-    <CategoryHero
-      :main="categoryNews?.actual as News"
-      :category-news="categoryNews?.news?.slice(0, 5)"
-      :parent-category="categoryNews?.category"
-    />
-    <CategoryMiddle
-      v-if="categoryNews.news.length > 5"
-      :data="categoryNews.news.slice(5) ?? []"
-    />
-    <!-- <UiAds :style="`mb-8 h-[180px] lg:h-[263px]`" position-btn="26" /> -->
-    <!-- <CategoryLast :data="data.categories[1]?.news ?? []" /> -->
-  </div>
+	<div class="container">
+		<UiNav />
+		<CategoryHero
+			:main="categoryNews?.actual as News"
+			:category-news="categoryNews?.news?.slice(0, 5)"
+			:parent-category="categoryNews?.category"
+		/>
+		<CategoryMiddle :data="categoryNews.news.slice(5) ?? []" />
+		<!-- <UiAds :style="`mb-8 h-[180px] lg:h-[263px]`" position-btn="26" /> -->
+		<!-- <CategoryLast :data="data.categories[1]?.news ?? []" /> -->
+	</div>
 </template>

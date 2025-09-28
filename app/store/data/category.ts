@@ -1,4 +1,4 @@
-import type { Category, CategoryNew, SlugCategory } from '~/interface/interface'
+import type { Category, CategoryNew, SlugCategory, News } from '~/interface/interface'
 
 export const useCategoryStore = defineStore('category', () => {
 	const { $api } = useNuxtApp()
@@ -11,9 +11,8 @@ export const useCategoryStore = defineStore('category', () => {
 		try {
 			const { data } = await $api.get(`/api/category/all/?lang=${locale.value}`)
 			category.value = data
-			console.log(data);
-			
-			hasSub.value = [...data.filter((value: Category) => value.subs.length > 0)]
+			hasSub.value = [...data.filter((value: Category) => value.subs!.length > 0).reverse()]
+			// console.log('DATA', data)
 		} catch (err) {
 			console.log('Error Category', err)
 		}
@@ -78,7 +77,7 @@ export const useCategoryStore = defineStore('category', () => {
 	}
 
 	const categoryNews = ref<CategoryNew>({
-		actual: {			
+		actual: {
 			actual: false,
 			chanel: false,
 			category: {
@@ -90,7 +89,7 @@ export const useCategoryStore = defineStore('category', () => {
 				title: '',
 				__v: 0,
 				_id: '',
-			},			
+			},
 			content: '',
 			date: '',
 			img: '',
@@ -114,26 +113,22 @@ export const useCategoryStore = defineStore('category', () => {
 			main: false,
 			parent: null,
 			slug: '',
-
 			status: false,
 			title: '',
 			__v: 0,
 			_id: '',
 		},
-
 	})
+
 	const getCategoryNews = async (slug: string, page: number = 1) => {
 		try {
-			const {data} = await $api.get(`/api/category/get/${slug}/`,{params: {lang: locale.value, page}})
-			console.log('cat', data)
-			// data.value = data || {}
+			const { data } = await $api.get(`/api/category/get/${slug}/`, { params: { lang: locale.value, page } })
 			categoryNews.value = {
 				actual: data?.actual || data.news?.at(0),
-				news: data?.actual?._id ? data.news?.filter(n => n._id !== data.actual._id) : data.news?.slice(1),
-				category: data.category,				
+				news: data?.actual?._id ? data.news?.filter((n: News) => n._id !== data.actual._id) : data.news?.slice(1),
+				category: data.category,
 			}
-			console.log('CategoryNews', categoryNews.value);
-			
+			console.log('CategoryNews', categoryNews.value)
 		} catch (err) {
 			console.log('Error Category', err)
 		}

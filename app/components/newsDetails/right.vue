@@ -33,26 +33,12 @@ defineProps<{
 					</div>
 				</div>
 
-				<div
+				<UiPosterNews
 					v-for="item in actual.slice(1, 2)"
 					:key="item._id"
-					class="space-y-2"
-				>
-					<div class="h-[240px] sm:h-[480px] lg:h-[520px] xl:h-[282px] overflow-hidden rounded-2xl">
-						<NuxtImg
-							:src="`${useUrl()}/${item.img}`"
-							alt=""
-							class="img"
-						/>
-					</div>
-					<div class="medium date">{{ useformatDate2()(item.date) }}</div>
-					<NuxtLink
-						:to="$localePath(`/news-details/${item.slug}`)"
-						class="medium title"
-					>
-						{{ item.title }}
-					</NuxtLink>
-				</div>
+					:news="item"
+					:border="false"
+				/>
 			</div>
 		</div>
 

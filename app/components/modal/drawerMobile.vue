@@ -62,12 +62,12 @@ onUnmounted(() => {
 											<DialogTitle class="">
 												<NuxtLink
 													:to="$localePath('/')"
-													class="w-[169px] h-[44px] block"
+													class="w-40 h-[44px] block"
 												>
 													<img
 														src="/logo.svg"
 														alt="Logo"
-														class="object-contain object-center w-full h-full"
+														class="img"
 													/>
 												</NuxtLink>
 											</DialogTitle>

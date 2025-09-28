@@ -57,13 +57,12 @@ export const useNewsStore = defineStore('slug-news', () => {
 				const res = await $api.get(`/api/news/get/${slug}/?lang=${locale.value}`)
 
 				data.value = res.data
+				// console.log('One News', data.value)
 			}
 		} catch (err) {
 			console.log('Error Get News', err)
 		}
 	}
-
-	
 
 	return {
 		data,

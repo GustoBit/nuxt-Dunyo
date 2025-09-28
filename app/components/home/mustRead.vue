@@ -54,7 +54,7 @@ defineProps<{
 						<div class="text-white500 medium text-lg">{{ useformatDate2()(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath(`/news-details/${item.slug}`)"
-							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700"
+							class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
 						>
 							{{ item.title }}
 						</NuxtLink>

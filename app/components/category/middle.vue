@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="data.length > 0" class="mb-8">
+  <div v-if="data.length > 5" class="mb-8">
     <div
       v-if="!useAds()"
       class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[26px]"

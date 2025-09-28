@@ -12,7 +12,6 @@ watch(
 	() => route.params.slug,
 	(newVal) => {
 		slug.value = newVal
-		console.log('NewVal', newVal)
 		getData()
 	}
 )
@@ -23,9 +22,6 @@ const getData = async () => {
 	if (typeof slug.value == 'string') {
 		await newsStore.getNews(slug.value)
 	}
-	console.log(data.value)
-	// console.log(data.value.latest)
-
 	loading.finish()
 }
 

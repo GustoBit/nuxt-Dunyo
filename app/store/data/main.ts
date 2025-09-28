@@ -7,24 +7,19 @@ export const useMainStore = defineStore('main-news', () => {
 	const data = ref<{
 		main: News[]
 		actual: News[]
-		latest: News[],
+		latest: News[]
 		slider: N[]
 	}>({
 		main: [],
 		actual: [],
 		latest: [],
-		slider: []
+		slider: [],
 	})
-
-
 
 	const getMain = async () => {
 		try {
 			const res = await $api.get(`/api/news/main/?lang=${locale.value}`)
-			
-			
 			data.value.main = res.data
-			// console.log('Main', data.value.main)
 		} catch (err) {
 			console.log('Error Main', err)
 		}
@@ -34,7 +29,6 @@ export const useMainStore = defineStore('main-news', () => {
 		try {
 			const res = await $api.get(`/api/news/actuals/?lang=${locale.value}`)
 			data.value.actual = res.data
-			// console.log('Actual', data.value.actual)
 		} catch (err) {
 			console.log('Error Main', err)
 		}
@@ -44,7 +38,6 @@ export const useMainStore = defineStore('main-news', () => {
 		try {
 			const res = await $api.get(`/api/news/latest/?lang=${locale.value}`)
 			data.value.latest = res.data
-			// console.log('Latest', data.value.latest)
 		} catch (err) {
 			console.log('Error Main', err)
 		}
@@ -53,14 +46,13 @@ export const useMainStore = defineStore('main-news', () => {
 	const slider = ref<News[]>([])
 	const getSliderNews = async () => {
 		try {
-			const {data} = await $api.get(`/api/news/slider/?lang=${locale.value}`)
+			const { data } = await $api.get(`/api/news/slider/?lang=${locale.value}`)
 			console.log('Slider', data)
 			slider.value = data || []
 		} catch (err) {
 			console.log('Error Slider', err)
 		}
 	}
-
 
 	return {
 		slider,

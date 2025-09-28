@@ -45,7 +45,7 @@ defineProps<{
 								class="img"
 							/>
 						</div>
-						<div class="medium date">{{ useFormatDate()(item.date) }}</div>
+						<div class="medium date dark:bg-gray-800 bg-white900">{{ useFormatDate()(item.date) }}</div>
 						<NuxtLink
 							:to="$localePath(`/news-details/${item.slug}`)"
 							class="medium title dark:bg-gray-800 bg-white900"

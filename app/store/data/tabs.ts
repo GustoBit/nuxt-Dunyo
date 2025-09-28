@@ -11,7 +11,7 @@ export const useTabsStore = defineStore('tabs-news', () => {
 	})
 
 	const popular = ref<TabItem>({
-		title: t('mustRead'),
+		title: 'mustRead',
 		slug: 'popular',
 		data: [],
 	})
@@ -32,6 +32,7 @@ export const useTabsStore = defineStore('tabs-news', () => {
 		try {
 			const res = await $api.get(`/api/news/tabs/?lang=${locale.value}`)
 			tabs.value = res.data
+			console.log('DATA', res.data)
 
 			latest.value.data = tabs.value.latest
 			important.value.data = tabs.value.important

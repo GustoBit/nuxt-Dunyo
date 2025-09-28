@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
-
 const model = defineModel<string>()
 const inputRef = ref<HTMLInputElement | null>(null)
 
