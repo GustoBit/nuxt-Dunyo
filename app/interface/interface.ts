@@ -146,6 +146,7 @@ export interface SlugNews {
 	latest: News[]
 	most_viewed: News[]
 	news: News
+	others: News[]
 }
 
 export interface Categories {

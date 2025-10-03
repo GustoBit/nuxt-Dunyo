@@ -1,79 +1,49 @@
 <script setup lang="ts">
-import type { News } from '~/interface/interface'
-
+import type { News } from "~/interface/interface";
 defineProps<{
-	mostViewed: News[]
-	actual: News[]
-}>()
+  others: News[];
+  mostViewed: News[];
+}>();
 </script>
 
 <template>
-	<div class="space-y-8">
-		<div class="space-y-5">
-			<h1 class="semibold leading-tight text-xl lg:text-[28px]">{{ $t('latestSportNews') }}</h1>
+  <div class="space-y-8">
+    <div class="space-y-5">
+      <h1 class="semibold leading-tight text-xl lg:text-[28px]">
+        {{ $t("latestNews") }}
+      </h1>
 
-			<div class="space-y-4">
-				<div
-					v-for="item in actual.slice(0, 1)"
-					:key="item._id"
-					class="space-y-3 pb-4 border-b-2 border-gray500 dark:border-gray-500/20"
-				>
-					<div class="medium date">{{ useformatDate2()(item.date) }}</div>
-					<NuxtLink
-						:to="$localePath(`/news-details/${item.slug}`)"
-						class="medium title"
-					>
-						{{ item.title }}
-					</NuxtLink>
-					<div
-						v-if="item.category.title"
-						class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
-					>
-						#{{ item.category.title }}
-					</div>
-				</div>
+      <div class="widget">
+        <div
+          v-for="item in others?.filter((i) => i.title) ||
+          mostViewed?.filter((i) => i.title)"
+          :key="item._id"
+          class="space-y-2 py-4"
+        >
+          <NuxtLink
+            :to="$localePath(`/news-details/${item.slug}`)"
+            class="right-title"
+          >
+            {{ item.title }}
+          </NuxtLink>
+          <div class="medium text-xs text-gray-500 dark:text-gray-200">
+            {{ useformatDate2()(item.date) }}
+          </div>
+          <div
+            v-if="item.category.title"
+            class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
+          >
+            #{{ item.category.title }}
+          </div>
+        </div>
 
-				<UiPosterNews
-					v-for="item in actual.slice(1, 2)"
-					:key="item._id"
-					:news="item"
-					:border="false"
-				/>
-			</div>
-		</div>
-
-		<div class="">
-			<UiAds
-				:style="`h-[146px]`"
-				position-btn="16"
-			/>
-
-			<div class="divide-y-2 divide-gray500 dark:divide-gray-500/20">
-				<div
-					v-for="item in mostViewed.slice(2, 7)"
-					:key="item._id"
-					class="py-4 space-y-3"
-				>
-					<div class="medium date">{{ useformatDate2()(item.date) }}</div>
-					<NuxtLink
-						:to="$localePath(`/news-details/${item.slug}`)"
-						class="medium title"
-					>
-						{{ item.title }}
-					</NuxtLink>
-					<div
-						v-if="item.category.title"
-						class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
-					>
-						#{{ item.category.title }}
-					</div>
-				</div>
-			</div>
-
-			<UiAds
-				:style="`h-[616px] mt-2.5 hidden xl:block`"
-				position-btn="16"
-			/>
-		</div>
-	</div>
+        <!-- <UiPosterNews
+          v-for="item in actual.slice(1, 2)"
+          :key="item._id"
+          :news="item"
+          :border="false"
+        /> -->
+      </div>
+    </div>
+  </div>
 </template>

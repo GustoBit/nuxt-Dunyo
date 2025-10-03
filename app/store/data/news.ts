@@ -39,6 +39,7 @@ export const useNewsStore = defineStore('slug-news', () => {
 		most_viewed: [],
 		latest: [],
 		actual: [],
+		others:[],
 		category: {
 			img: [],
 			main: false,
@@ -54,7 +55,12 @@ export const useNewsStore = defineStore('slug-news', () => {
 	const getNews = async (slug: string) => {
 		try {
 			if (slug.length > 0) {
-				const res = await $api.get(`/api/news/get/${slug}/?lang=${locale.value}`)
+				const res = await $api.get(`/api/news/get/${slug}`,{
+					params: {
+						lang: locale.value,
+						limit:10
+					}
+				})
 
 				data.value = res.data
 				// console.log('One News', data.value)

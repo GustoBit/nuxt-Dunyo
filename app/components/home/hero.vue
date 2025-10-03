@@ -14,7 +14,7 @@ defineProps<{
 <template>
   <div class="grid grid-cols-12 gap-[27px] mb72">
     <div
-      class="h-[380px] lg:h-[444px] xl:h-[621px] col-span-9 overflow-hidden rounded-xl relative order-1 xl:order-none"
+      class="aspect-16/9 col-span-9 max-md:col-span-12 overflow-hidden rounded-xl relative xl:order-none"
     >
       <Swiper
         :style="{
@@ -44,12 +44,12 @@ defineProps<{
           />
 
           <div class="gradient rounded-b-xl">
-            <div class="text-white500 medium text-lg">
+            <div class="text-white">
               {{ useformatDate2()(item.date) }}
             </div>
             <NuxtLink
               :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white800 medium text-2xl lg:text-[32px] line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
+              class="text-white font-light text-2xl lg:text-[26px] line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
             >
               {{ item.title }}
             </NuxtLink>
@@ -59,24 +59,29 @@ defineProps<{
     </div>
 
     <div
-      class="space-y-4 lg:space-y-0 lg:grid col-span-3 lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[631px] xl:overflow-y-auto"
+      class="space-y-4 lg:space-y-0 lg:grid col-span-3 max-md:col-span-12 lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-4 overflow-hidden"
     >
       <div
-        v-for="item in actual"
+        v-for="item in latest"
         :key="item._id"
         class="space-y-1 pb-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
       >
-        <div class="medium date">{{ useformatDate2()(item.date) }}</div>
         <NuxtLink
           :to="$localePath(`/news-details/${item.slug}`)"
-          class="medium title"
+          class="right-title"
         >
           {{ item.title }}
         </NuxtLink>
-        <div
-          class="select-none text-blue700 dark:text-blue600 light sm:text-lg"
-        >
-          #{{ item.category.title }}
+
+        <div class="flex items-center justify-between flex-wrap">
+          <div class="text-xs text-gray-500 dark:text-gray-200">
+            {{ useformatDate2()(item.date) }}
+          </div>
+          <div
+            class="select-none text-blue700 dark:text-blue-200 light text-xs"
+          >
+            {{ item.category.title }}
+          </div>
         </div>
       </div>
     </div>

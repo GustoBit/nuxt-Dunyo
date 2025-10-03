@@ -19,11 +19,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="mb-2 xl:mb-2 sticky top-0 z-50 bg-gray-50/90 backdrop-blur-md">
+  <header
+    class="sticky top-0 z-50 bg-gray-50/80 dark:bg-gray-800 backdrop-blur-md border-b-2 border-brand"
+  >
     <div
       :class="[
         'relative py-2',
-        isScrolled ? 'xl:pt-2 shadow' : 'xl:pt-4',
+        isScrolled ? 'xl:pt-2 shadow' : 'xl:pt-2',
         'transition-all duration-300 ease-in-out',
       ]"
     >
@@ -39,29 +41,26 @@ onUnmounted(() => {
 
           <!-- <HeaderSearch /> -->
 
-          <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+          <div class="flex items-center gap-2 sm:gap-2 ml-auto">
+            <a
+              target="_blank"
+              href="https://www.youtube.com/@iadunyo_uzb"
+              rel="noreferrer"
+              class="hidden lg:flex rounded-lg py-[12px] cursor-pointer text-gray-700 dark:text-gray-200 medium text-lg leading-[100%] text-center items-center gap-2"
+            >
+              <img src="/youtube.svg" alt="Youtube" /> Watch
+            </a>
             <button
               type="button"
-              class="flex items-center justify-center w-11 h-11 border border-white600 dark:border-gray-500/20 dark:active:bg-gray-500/20 rounded-lg p-1 active:bg-white600"
+              class="flex items-center justify-center size-10 hover:bg-gray-200 dark:hover:bg-gray-500/20 rounded-lg p-1 active:bg-white600"
               @click="searchStore.setShow(true)"
             >
               <UIcon
                 name="simple-line-icons:magnifier"
-                class="!h-5 !w-5 text-gray400"
+                class="!h-5 !w-5 text-gray-600 dark:text-gray-100"
                 aria-hidden="true"
               />
             </button>
-
-            <NuxtLink
-              :to="$localePath('/contacts')"
-              class="hidden lg:block bg-blue900 xl:hover:bg-blue600 rounded-lg py-[12px] w-[162px] cursor-pointer"
-            >
-              <p
-                class="text-white900 medium text-lg leading-[100%] text-center"
-              >
-                {{ $t("contacts") }}
-              </p>
-            </NuxtLink>
 
             <div class="hidden lg:block">
               <HeaderColor />

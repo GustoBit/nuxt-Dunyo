@@ -48,7 +48,6 @@ definePageMeta({
 
 <template>
   <div class="container">
-    
     <HomeHero :main="data.main" :latest="data.latest" :actual="data.actual" />
     <UiNews
       :data="popular.data"
@@ -57,10 +56,10 @@ definePageMeta({
       :data2="slider || []"
       :title2="popular.title"
       :slug2="popular.slug"
-      :from="2"
-      :to="5"
-      :from2="5"
-      :to2="8"
+      :from="3"
+      :to="6"
+      :from2="6"
+      :to2="9"
       clas="mb-[72px]"
     />
     <HomeVideo :data="video" />
