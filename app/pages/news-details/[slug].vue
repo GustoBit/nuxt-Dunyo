@@ -1,74 +1,70 @@
 <script setup lang="ts">
-import { useNewsStore } from '~/store/data/news'
-const newsStore = useNewsStore()
-const { data } = storeToRefs(newsStore)
+import { useNewsStore } from "~/store/data/news";
+const newsStore = useNewsStore();
+const { data } = storeToRefs(newsStore);
 
-const route = useRoute()
-const { locale } = useI18n()
+const route = useRoute();
+const { locale } = useI18n();
 
-const slug = ref(route.params?.slug)
+const slug = ref(route.params?.slug);
 
 watch(
-	() => route.params.slug,
-	(newVal) => {
-		slug.value = newVal
-		getData()
-	}
-)
+  () => route.params.slug,
+  (newVal) => {
+    slug.value = newVal;
+    getData();
+  }
+);
 
-const loading = useLoading()
+const loading = useLoading();
 const getData = async () => {
-	loading.start()
-	if (typeof slug.value == 'string') {
-		await newsStore.getNews(slug.value)
-	}
-	loading.finish()
-}
+  loading.start();
+  if (typeof slug.value == "string") {
+    await newsStore.getNews(slug.value);
+  }
+  loading.finish();
+};
 
 watch(locale, () => {
-	getData()
-})
+  getData();
+});
 
 onMounted(() => {
-	getData()
-})
+  getData();
+});
 
 definePageMeta({
-	title: 'newsDetails',
-})
+  title: "newsDetails",
+});
 </script>
 
 <template>
-	<div class="container">
-		<UiNav />
+  <div class="container">
+    <div class="mb-8 space-y-5 xl:space-y-9">
+      <h1 class="semibold text-lg lg:text-3xl xl:text-4xl">
+        {{ data.news.title }}
+      </h1>
 
-		<div class="mb-8 space-y-5 xl:space-y-9">
-			<h1 class="semibold text-lg lg:text-3xl xl:text-4xl">{{ data.news.title }}</h1>
+      <div
+        class="grid gap-10 xl:gap-[26px] grid-cols-1 xl:grid-cols-[1fr_316px]"
+      >
+        <NewsDetailsLeft :news="data.news" :category="data.category" />
 
-			<div class="grid gap-10 xl:gap-[26px] grid-cols-1 xl:grid-cols-[1fr_316px]">
-				<NewsDetailsLeft
-					:news="data.news"
-					:category="data.category"
-				/>
+        <NewsDetailsRight
+          :actual="data.actual"
+          :most-viewed="data.most_viewed"
+        />
+      </div>
+    </div>
 
-				<NewsDetailsRight
-					:actual="data.actual"
-					:most-viewed="data.most_viewed"
-				/>
-			</div>
-		</div>
+    <UiAds :style="`mb-14 h-[180px] lg:h-[263px]`" position-btn="26" />
 
-		<UiAds
-			:style="`mb-14 h-[180px] lg:h-[263px]`"
-			position-btn="26"
-		/>
-
-		<UiLatest
-			:data="data.latest"
-			:title="$t('latestNews')"
-			slug=""
-			:from="0"
-			:to="4"
-		/>
-	</div>
+    <UiLatest
+      :data="data.latest"
+      :title="$t('latestNews')"
+      slug=""
+      :from="0"
+      :to="4"
+    />
+  </div>
 </template>
