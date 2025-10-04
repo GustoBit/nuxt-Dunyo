@@ -15,7 +15,7 @@ useHead(() => {
   <div class="flex flex-col">
     <Header />
     <UiNav />
-    <main class="max-md:pt-2">
+    <main class="max-md:pt-2" id="main-content">
       <slot />
     </main>
     <Footer />

@@ -44,12 +44,12 @@ defineProps<{
           />
 
           <div class="gradient rounded-b-xl">
-            <div class="text-white">
+            <div class="text-white max-md:text-xs">
               {{ useformatDate2()(item.date) }}
             </div>
             <NuxtLink
               :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white font-light text-2xl lg:text-[26px] line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
+              class="text-white font-medium text-2xl lg:text-[26px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 leading-7"
             >
               {{ item.title }}
             </NuxtLink>

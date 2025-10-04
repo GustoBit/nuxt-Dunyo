@@ -14,7 +14,7 @@ defineProps<{
       <NuxtImg :src="`${useUrl()}/${news.img}`" alt="" class="img" />
     </div> -->
     <h1
-      class="text-lg lg:text-3xl xl:text-4xl font-light max-w-[1000px] mx-auto"
+      class="text-lg lg:text-3xl xl:text-4xl font-semibold max-w-[1000px] mx-auto leading-8"
     >
       {{ news.title }}
       <div class="text-gray600 dark:text-gray100 text-base mt-2">

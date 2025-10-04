@@ -11,11 +11,11 @@ defineProps<{
 <template>
   <div class="space-y-[26px] mb72">
     <div class="flex items-center justify-between gap-2">
-      <h1 class="semibold text-3xl sm:text-4xl lg:text-[42px]">
+      <h1 class="semibold text-3xl sm:text-4xl lg:text-[42px] max-md:text-lg">
         {{ $t("mustRead") }}
       </h1>
 
-      <NuxtLink :to="$localePath('/')" class="medium see">
+      <NuxtLink :to="$localePath('/')" class="medium see max-md:hidden">
         {{ $t("seeAll") }}
       </NuxtLink>
     </div>
@@ -27,7 +27,7 @@ defineProps<{
         <div
           v-for="item in data.slice(0, 5)"
           :key="item._id"
-          class="pb-2 space-y-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
+          class="pb-2 space-y-2"
         >
           <NuxtLink
             :to="$localePath(`/news-details/${item.slug}`)"

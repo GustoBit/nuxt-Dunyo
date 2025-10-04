@@ -24,7 +24,7 @@ onMounted(() => {
           v-for="(item, index) in hasSub"
           :key="item._id"
           :to="$localePath(`/category/${item.slug}`)"
-          class="relative inline-block group text-gray200 dark:text-gray-100 hover:text-blue800 dark:hover:text-white800"
+          class="relative inline-block group text-gray700 dark:text-gray-100 hover:text-blue800 dark:hover:text-white800 font-medium"
         >
           <p class="regular">
             {{ item.title }}
