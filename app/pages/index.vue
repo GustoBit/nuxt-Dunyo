@@ -50,20 +50,13 @@ definePageMeta({
   <div class="container">
     <HomeHero :main="data.main" :latest="data.latest" :actual="data.actual" />
     <UiNews
-      :data="popular.data"
-      :title="popular.title"
-      :slug="popular.slug"
-      :data2="slider || []"
-      :title2="popular.title"
-      :slug2="popular.slug"
-      :from="3"
-      :to="6"
-      :from2="6"
-      :to2="9"
-      clas="mb-[72px]"
+      :data="important.data"
+      :title="important.title"
+      :slug="important.slug"
     />
+    <UiNews :data="latest.data" :title="latest.title" :slug="latest.slug" />
     <HomeVideo :data="video" />
-    <UiAds :style="`mb-14 h-[180px] lg:h-[263px]`" position-btn="26" />
+    <UiAds :style="`mb-14 h-[180px] lg:h-[263px] relative`" position-btn="26" />
     <div class="mb72">
       <UiLatest
         :data="latest.data"

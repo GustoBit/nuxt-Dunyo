@@ -69,7 +69,7 @@ export const useCategoryStore = defineStore('category', () => {
 	const getSecondCats = async (slug: string) => {
 		try {
 			const res = await $api.get(`/api/category/tabs/${slug}/?lang=${locale.value}`)
-			// console.log('Second Res', res.data)
+			console.log('Second Res', res.data)
 			data.value = res.data
 		} catch (err) {
 			console.log('Error Category', err)

@@ -59,12 +59,12 @@ defineProps<{
     </div>
 
     <div
-      class="space-y-4 lg:space-y-0 lg:grid col-span-3 max-md:col-span-12 lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-4 overflow-hidden"
+      class="lg:grid col-span-3 max-md:col-span-12 lg:gap-[27px] xl:block xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden"
     >
       <div
         v-for="item in latest"
         :key="item._id"
-        class="space-y-1 pb-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
+        class="space-y-1 py-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
       >
         <NuxtLink
           :to="$localePath(`/news-details/${item.slug}`)"
