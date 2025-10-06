@@ -12,10 +12,10 @@ useHead(() => {
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div id="main-content" class="flex flex-col">
     <Header />
     <UiNav />
-    <main class="max-md:pt-2" id="main-content">
+    <main class="max-md:pt-2">
       <slot />
     </main>
     <Footer />

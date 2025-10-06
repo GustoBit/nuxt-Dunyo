@@ -48,7 +48,11 @@ definePageMeta({
 
 <template>
   <div class="container">
-    <HomeHero :main="data.main" :latest="data.latest" :actual="data.actual" />
+    <HomeHero
+      :main="data.main"
+      :latest="data.latest?.slice(0, 5)"
+      :actual="data.actual?.slice(0, 5)"
+    />
     <UiNews
       :data="important.data"
       :title="important.title"

@@ -62,7 +62,7 @@ button {
     @apply line-clamp-2 w-fit leading-tight text-lg lg:text-xl xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300;
 }
 .right-title {
-    @apply line-clamp-3 w-fit leading-tight  xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300;
+    @apply line-clamp-3 w-fit leading-5  xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300 text-sm;
 }
 
 .date {
@@ -101,7 +101,7 @@ button {
     }
 
     img {
-        @apply w-full object-cover object-center rounded-md mb-2;
+        @apply w-full object-cover object-center rounded-md mb-2 hidden;
     }
 
     a {

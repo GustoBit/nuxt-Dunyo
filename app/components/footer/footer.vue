@@ -26,7 +26,7 @@ onMounted(() => {
           <NuxtImg
             src="/logo.svg"
             alt="Logo"
-            class="img dark:brightness-0 dark:invert-100"
+            class="dark:brightness-0 dark:invert-100 h-full object-contain"
           />
         </NuxtLink>
 

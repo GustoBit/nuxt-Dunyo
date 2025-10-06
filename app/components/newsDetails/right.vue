@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <div class="space-y-8">
     <div class="space-y-5">
-      <h1 class="semibold leading-tight text-xl lg:text-[28px]">
+      <h1 class="semibold leading-tight text-xl lg:text-2xl">
         {{ $t("latestNews") }}
       </h1>
 

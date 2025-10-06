@@ -17,9 +17,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-gray-900 mb-8 py-4 hidden xl:block">
-    <div class="container">
-      <div class="flex items-center justify-between">
+  <div class="mb-8 hidden xl:block mt-4">
+    <div class="container bg-white dark:bg-gray-900 rounded-2xl">
+      <div class="flex items-center justify-between p-4">
         <NuxtLink
           v-for="(item, index) in hasSub"
           :key="item._id"

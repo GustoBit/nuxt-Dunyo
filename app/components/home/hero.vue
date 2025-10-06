@@ -4,11 +4,18 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
 import type { News } from "~/interface/interface";
 
+const btnToggle = ref<string>("latest");
+
 defineProps<{
   main: News[];
   latest: News[];
   actual: News[];
 }>();
+
+const btns = computed(() => [
+  { title: $t("latestNews"), value: "latest" },
+  { title: $t("actualNews"), value: "actual" },
+]);
 </script>
 
 <template>
@@ -58,29 +65,46 @@ defineProps<{
       </Swiper>
     </div>
 
-    <div
-      class="lg:grid col-span-3 max-md:col-span-12 lg:gap-[27px] xl:block xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden"
-    >
-      <div
-        v-for="item in latest"
-        :key="item._id"
-        class="space-y-1 py-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
-      >
-        <NuxtLink
-          :to="$localePath(`/news-details/${item.slug}`)"
-          class="right-title"
+    <div class="lg:grid col-span-3 max-md:col-span-12 lg:gap-4 content-start">
+      <div class="flex items-center gap-4">
+        <button
+          v-for="item in btns"
+          :key="item.value"
+          :class="[
+            'text-sm ring ring-inset flex-1 text-center rounded-md p-1 py-1.5',
+            btnToggle === item.value
+              ? 'ring-brand bg-brand text-white'
+              : 'ring-gray-300',
+          ]"
+          @click="btnToggle = item.value"
         >
           {{ item.title }}
-        </NuxtLink>
-
-        <div class="flex items-center justify-between flex-wrap">
-          <div class="text-xs text-gray-500 dark:text-gray-200">
-            {{ useformatDate2()(item.date) }}
-          </div>
-          <div
-            class="select-none text-blue700 dark:text-blue-200 light text-xs"
+        </button>
+      </div>
+      <div
+        class="xl:block xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden"
+      >
+        <div
+          v-for="item in btnToggle == 'latest' ? latest : actual"
+          :key="item._id"
+          class="space-y-1.5 py-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
+        >
+          <NuxtLink
+            :to="$localePath(`/news-details/${item.slug}`)"
+            class="right-title"
           >
-            {{ item.category.title }}
+            {{ item.title }}
+          </NuxtLink>
+
+          <div class="flex items-center justify-between flex-wrap">
+            <div class="text-xs text-gray-500 dark:text-gray-200">
+              {{ useformatDate2()(item.date) }}
+            </div>
+            <div
+              class="select-none text-blue700 dark:text-blue-200 light text-xs"
+            >
+              {{ item.category.title }}
+            </div>
           </div>
         </div>
       </div>
