@@ -35,7 +35,7 @@
 
 
 body {
-    @apply bg-gray-50 text-black800 dark:bg-gray-800 dark:text-white900 font-inter;
+    @apply bg-gray-50 text-black800 dark:bg-[#242732] dark:text-white900 font-inter;
 }
 
 .container {
@@ -77,8 +77,9 @@ button {
     @apply size-10 flex items-center justify-center bg-white rounded-full hover:bg-brand hover:text-white border border-gray-200 text-gray-600 dark:border-gray-500/20 dark:text-gray-600 hover:border-brand  dark:hover:border-brand dark:hover:bg-brand
 }
 .widget {
-    @apply ring ring-gray-200 dark:ring-gray-500/20 px-4 py-0 divide-y divide-gray-200 dark:divide-gray-500/20 rounded-lg bg-white shadow dark:bg-gray-700
+    @apply ring ring-gray-200 dark:ring-gray-500/20 px-4 py-0 divide-y divide-gray-200 dark:divide-gray-500/20  bg-white shadow dark:bg-[#242732]
 }
+/* rounded-mg */
 .no-img {
     @apply line-clamp-5;
 

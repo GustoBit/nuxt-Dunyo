@@ -21,7 +21,7 @@ const btns = computed(() => [
 <template>
   <div class="grid grid-cols-12 gap-[27px] mb72">
     <div
-      class="aspect-16/9 col-span-9 max-md:col-span-12 overflow-hidden rounded-xl relative xl:order-none"
+      class="aspect-16/9 col-span-9 max-md:col-span-12 overflow-hidden relative xl:order-none"
     >
       <Swiper
         :style="{
@@ -47,10 +47,10 @@ const btns = computed(() => [
           <NuxtImg
             :src="`${useUrl()}/${item.img}`"
             alt=""
-            class="img rounded-xl"
+            class="img "
           />
 
-          <div class="gradient rounded-b-xl">
+          <div class="gradient ">
             <div class="text-white max-md:text-xs">
               {{ useformatDate2()(item.date) }}
             </div>
@@ -71,7 +71,7 @@ const btns = computed(() => [
           v-for="item in btns"
           :key="item.value"
           :class="[
-            'text-sm ring ring-inset flex-1 text-center rounded-md p-1 py-1.5',
+            'text-sm ring ring-inset flex-1 text-center  p-1 py-1.5',
             btnToggle === item.value
               ? 'ring-brand bg-brand text-white'
               : 'ring-gray-300',

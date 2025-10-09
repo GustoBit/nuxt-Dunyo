@@ -20,7 +20,7 @@ onUnmounted(() => {
 
 <template>
   <header
-    class="sticky top-0 z-50 bg-gray-50/80 dark:bg-gray-800 backdrop-blur-md border-b-2 border-brand"
+    class="sticky top-0 z-50 bg-gray-50/80 dark:bg-[#242732] backdrop-blur-md border-b-2 border-brand"
   >
     <div
       :class="[
