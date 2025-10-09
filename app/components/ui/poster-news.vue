@@ -11,16 +11,13 @@ defineProps<{
 <template>
   <div
     :class="[
-      'bg-white dark:bg-gray-700 dark:text-white border-b-2 sm:border-0 border-gray500 dark:border-gray-500/20  ring ring-gray-200 flex col-span-1 max-md:flex-col',
-      idx === 0 ? 'row-span-3  flex-col' : '',
+      'bg-white dark:bg-darkbg dark:text-white   ring ring-gray-200 dark:ring-gray-500/20 flex col-span-1 flex-col',
+      idx === 0 ? 'row-span-2 col-span-2 ' : 'col-span-1 row-span-1',
     ]"
   >
     <NuxtLink
       :to="$localePath(`/news-details/${news.slug}`)"
-      :class="[
-        'aspect-16/9  overflow-hidden  block relative',
-        idx === 0 ? 'w-full' : 'w-[250px] max-md:w-full',
-      ]"
+      :class="['aspect-16/9  overflow-hidden  block relative w-full']"
     >
       <NuxtImg :src="`${useUrl()}/${news.img}`" alt="" class="img" />
     </NuxtLink>
@@ -38,7 +35,7 @@ defineProps<{
       </div>
       <NuxtLink
         :to="$localePath(`/news-details/${news.slug}`)"
-        :class="[idx == 0 ? 'text-2xl max-md:text-lg' : 'text-lg']"
+        :class="[idx == 0 ? 'text-2xl max-md:text-lg' : 'text-lg line-clamp-3']"
       >
         {{ news.title }}
       </NuxtLink>

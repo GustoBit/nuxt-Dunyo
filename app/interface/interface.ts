@@ -48,6 +48,13 @@ export interface NewsCategory {
 	_id: string
 }
 
+export type Img = {
+
+	url: string
+	__v: number
+	_id: string
+}
+
 export interface News {
 	category: NewsCategory
 	actual: boolean
@@ -55,7 +62,7 @@ export interface News {
 	content: string
 	country?: string
 	date: string
-	img: string
+	img: string | Img[]
 	important_dates: boolean
 	main: boolean
 	post_date: null

@@ -44,13 +44,9 @@ const btns = computed(() => [
         class="w-full h-full"
       >
         <SwiperSlide v-for="item in main" :key="item._id">
-          <NuxtImg
-            :src="`${useUrl()}/${item.img}`"
-            alt=""
-            class="img "
-          />
+          <NuxtImg :src="`${useUrl()}/${item.img}`" alt="" class="img" />
 
-          <div class="gradient ">
+          <div class="gradient">
             <div class="text-white max-md:text-xs">
               {{ useformatDate2()(item.date) }}
             </div>
@@ -65,8 +61,10 @@ const btns = computed(() => [
       </Swiper>
     </div>
 
-    <div class="lg:grid col-span-3 max-md:col-span-12 lg:gap-4 content-start">
-      <div class="flex items-center gap-4">
+    <div
+      class="flex flex-col col-span-3 max-md:col-span-12 lg:gap-4 content-start"
+    >
+      <div class="flex items-center">
         <button
           v-for="item in btns"
           :key="item.value"
@@ -82,7 +80,7 @@ const btns = computed(() => [
         </button>
       </div>
       <div
-        class="xl:block xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden"
+        class="xl:block xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden flex-1"
       >
         <div
           v-for="item in btnToggle == 'latest' ? latest : actual"

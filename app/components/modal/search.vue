@@ -21,13 +21,14 @@ const { data } = storeToRefs(searchStore);
 
 const query = ref("");
 
-const getData = async () => {
-  searchStore.get(query.value);
+const getData = async (val: string = "") => {
+  query.value = val;
+  if (query.value) searchStore.get(query.value);
 };
 
-watch(query, (newVal) => {
-  searchStore.get(newVal);
-});
+// watch(query, (newVal) => {
+//   searchStore.get(newVal);
+// });
 
 onMounted(() => {
   getData();
@@ -40,9 +41,9 @@ const filteredItems = computed(() =>
         return item.title.toLowerCase().includes(query.value.toLowerCase());
       })
 );
-watch(query, (newVal) => {
-  query.value = newVal;
-});
+// watch(query, (newVal) => {
+//   query.value = newVal;
+// });
 
 const router = useRouter();
 const localePath = useLocalePath();
@@ -96,7 +97,7 @@ const onSelect = (item: Search): void => {
                   class="h-12 w-full pl-11 pr-4 focus:outline-none focus:shadow-md placeholder:text-gray100 text-lg regular"
                   :placeholder="$t('search')"
                   autocomplete="off"
-                  @change="query = $event.target.value"
+                  @change="getData($event.target.value)"
                 />
               </div>
 
@@ -122,9 +123,6 @@ const onSelect = (item: Search): void => {
                       <p class="medium">
                         {{ item.title }}
                       </p>
-					  <div>
-						
-					  </div>
                     </div>
                   </li>
                 </ComboboxOption>

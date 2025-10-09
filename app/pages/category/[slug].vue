@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SimpleCard from "~/components/ui/simple-card.vue";
 import type { News } from "~/interface/interface";
 import { useCategoryStore } from "~/store/data/category";
 const categoryStore = useCategoryStore();
@@ -48,8 +49,14 @@ definePageMeta({
       :category-news="categoryNews?.news?.slice(0, 5)"
       :parent-category="categoryNews?.category"
     />
-    <CategoryMiddle :data="categoryNews.news.slice(5) ?? []" />
-    <!-- <UiAds :style="`mb-8 h-[180px] lg:h-[263px]`" position-btn="26" /> -->
-    <!-- <CategoryLast :data="data.categories[1]?.news ?? []" /> -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[26px]">
+      <SimpleCard
+        v-for="item in categoryNews.news.slice(5)"
+        :key="item._id"
+        :news="item"
+        :idx="0"
+        :border="false"
+      />
+    </div>
   </div>
 </template>

@@ -12,10 +12,10 @@ const videoStore = useVideoStore();
 const { video } = storeToRefs(videoStore);
 
 const tabsStore = useTabsStore();
-const { important, latest, popular } = storeToRefs(tabsStore);
+const { important, latest } = storeToRefs(tabsStore);
 
 const mainStore = useMainStore();
-const { data, slider } = storeToRefs(mainStore);
+const { data } = storeToRefs(mainStore);
 
 const languageStore = useLanguageStore();
 const loading = useLoading();
@@ -47,45 +47,40 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="container">
-    <HomeHero
-      :main="data.main"
-      :latest="data.latest?.slice(0, 5)"
-      :actual="data.actual?.slice(0, 5)"
-    />
-    <UiNews
-      :data="important.data"
-      :title="important.title"
-      :slug="important.slug"
-    />
-    <UiNews :data="latest.data" :title="latest.title" :slug="latest.slug" />
+  <section>
+    <div class="container">
+      <HomeHero
+        :main="data.main"
+        :latest="data.latest?.slice(0, 5)"
+        :actual="data.actual?.slice(0, 5)"
+      />
+      <UiNews
+        :data="important.data"
+        :title="important.title"
+        :slug="important.slug"
+      />
+      <UiNews :data="latest.data" :title="latest.title" :slug="latest.slug" />
+    </div>
     <HomeVideo :data="video" />
-    <UiAds :style="`mb-14 h-[180px] lg:h-[263px] relative`" position-btn="26" />
-    <div class="mb72">
-      <UiLatest
-        :data="latest.data"
-        :title="latest.title"
-        :slug="latest.slug"
-        :from="0"
-        :to="4"
+    <div class="container">
+      <UiAds
+        :style="`mb-14 h-[180px] lg:h-[263px] relative`"
+        position-btn="26"
+      />
+      <div class="mb72">
+        <UiLatest
+          :data="latest.data"
+          :title="latest.title"
+          :slug="latest.slug"
+          :from="0"
+          :to="4"
+        />
+      </div>
+      <HomeMustRead
+        :data="important.data"
+        :title="important.title || '123'"
+        :slug="important.slug"
       />
     </div>
-    <HomeMustRead
-      :data="important.data"
-      :title="important.title || '123'"
-      :slug="important.slug"
-    />
-    <UiNews
-      :data2="slider || []"
-      :data="popular.data"
-      :title="popular.title"
-      :title2="popular.title"
-      :slug="popular.slug"
-      :slug2="popular.slug"
-      :from="2"
-      :to="4"
-      :from2="4"
-      :to2="6"
-    />
-  </div>
+  </section>
 </template>

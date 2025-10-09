@@ -19,6 +19,13 @@
 	"message": "Xabar",
 	"sendFeedback": "Fikr-mulohazani yuborish",
 	"latestSportNews": "So‘nggi sport yangiliklari",
-	"actualNews": "Dolzarb yangiliklar"
+	"actualNews": "Dolzarb yangiliklar",
+	"news":"Yangiliklar",
+	"others":"Mavzuga oid",
+	"about": "Biz haqimizda",
+  "privacy": "Maxfiylik",
+  "term": "Foydalanish shartlari",
+  "cookie": "Cookie siyosati"
+
 	
 }

@@ -19,5 +19,11 @@
 	"message": "Message",
 	"sendFeedback": "Send feedback",
 	"latestSportNews": "Latest sport news",
-	"actualNews": "Actual news"
+	"actualNews": "Actual news",
+	"news":"News",
+	"others":"Read also",
+	"about":"About",
+	"privacy":"Privacy",
+	"term":"Term of Use",
+	"cookie":"Cookie Policy"
 }

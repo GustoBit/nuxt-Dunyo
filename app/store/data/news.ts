@@ -1,4 +1,4 @@
-import type { SlugNews } from '~/interface/interface'
+import type { Img, News, SlugNews } from '~/interface/interface'
 
 export const useNewsStore = defineStore('slug-news', () => {
 	const { $api } = useNuxtApp()
@@ -61,8 +61,13 @@ export const useNewsStore = defineStore('slug-news', () => {
 						limit:10
 					}
 				})
+				data.value = {...res.data, others: res.data.others.map((i: News) => {
 
-				data.value = res.data
+					return {
+						...i,
+						img: (i.img as Img[]).at(0)?.url
+					}
+				})}
 				// console.log('One News', data.value)
 			}
 		} catch (err) {

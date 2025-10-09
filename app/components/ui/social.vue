@@ -42,7 +42,7 @@ const nav = ref<Social[]>([
     >
       <Icon
         :name="`line-md:${item.img}`"
-        class="w-5 h-5 object-cover object-center dark:brightness-100 dark:invert"
+        class="w-5 h-5 object-cover object-center"
       />
     </a>
   </div>

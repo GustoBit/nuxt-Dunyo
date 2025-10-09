@@ -29,10 +29,10 @@ defineProps<{
     <!-- DATA -->
     <div class="">
       <div
-        class="grid grid-flow-col grid-rows-3 gap-[26px] grid-cols-2 max-md:block max-md:space-y-4"
+        class="grid grid-flow-col grid-rows-2 gap-[26px] grid-cols-4 max-md:block max-md:space-y-4"
       >
         <UiPosterNews
-          v-for="(item, idx) in data.slice(0, 4) || new Array(4)"
+          v-for="(item, idx) in data.slice(0, 5) || new Array(4)"
           :key="item._id"
           :news="item"
           :border="true"

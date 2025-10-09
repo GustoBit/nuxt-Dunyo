@@ -44,10 +44,14 @@ definePageMeta({
       <div
         class="grid gap-10 xl:gap-[26px] grid-cols-1 xl:grid-cols-[1fr_316px]"
       >
-        <NewsDetailsLeft :news="data.news" :category="data.category" />
+        <NewsDetailsLeft
+          :news="data.news"
+          :category="data.category"
+          :others="data.others"
+        />
 
         <NewsDetailsRight
-          :others="data.others?.length ? data.others : data.latest"
+          :others="data.latest"
           :most-viewed="data.most_viewed"
         />
       </div>
@@ -55,12 +59,12 @@ definePageMeta({
 
     <UiAds :style="`mb-14 h-[180px] lg:h-[263px]`" position-btn="26" />
 
-    <UiLatest
-      :data="data.latest"
+    <!-- <UiLatest
+      :data="data.others"
       :title="$t('latestNews')"
       slug=""
       :from="0"
       :to="4"
-    />
+    /> -->
   </div>
 </template>

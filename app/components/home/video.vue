@@ -22,57 +22,80 @@ defineProps<{
 
 <template>
   <ClientOnly>
-    <div
-      class="px-4 py-10 lg:px-8 relative rounded-[26px] overflow-hidden bg-gradient-to-b from-blue600 to-blue500 mb-[52px]"
-    >
-      <div class="relative z-10">
-        <div
-          v-for="item in data.slice(0, 1)"
-          :key="item._id"
-          class="mb-6 relative mx-auto flex gap-10"
-        >
-          <div class="relative flex-1">
-            <div class="aspect-16/9 mx-auto rounded-xl overflow-hidden">
-              <YouTube
-                ref="iframe"
-                :src="item.link || ''"
-                height="100%"
+    <div class="px-4 py-10 lg:px-8 relative overflow-hidden bg-brand mb-[52px]">
+      <div
+        class="container relative z-10 grid gap-[26px] grid-cols-4 max-md:block max-md:space-y-4"
+      >
+        <div class="col-span-1 grid grid-cols-1 gap-[26px]">
+          <div
+            v-for="item in data.slice(1, 3)"
+            :key="item._id"
+            class="space-y-2 lg:space-y-4 col-span-1"
+          >
+            <div class="aspect-16/9 overflow-hidden">
+              <iframe
+                :src="item?.link"
                 width="100%"
+                height="100%"
+                loading="lazy"
                 class="w-full h-full"
-                @state-change="onPlayerStateChange"
+                frameborder="0"
+                allowfullscreen
               />
-            </div>
-            <div
-              :class="[
-                'hidden lg:block gradient rounded-b-xl transform transition duration-300 ease-in-out',
-                isPlaying
-                  ? 'translate-y-1 opacity-0 pointer-events-none'
-                  : 'translate-y-0 opacity-100',
-              ]"
-            >
-              <NuxtLink
-                :to="$localePath(`/`)"
-                class="text-white800 text-2xl lg:text-2xl line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
-              >
-                {{ item.title }}
-              </NuxtLink>
             </div>
             <NuxtLink
               :to="$localePath('/')"
-              class="text-white900 medium text-xl lg:hidden line-clamp-3 xl:hover:text-blue700 active:text-blue700 mt-2 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
+              class="text-white900 line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
             >
               {{ item.title }}
             </NuxtLink>
           </div>
         </div>
-
-        <div class="grid grid-cols-1 gap-[26px] lg:grid-cols-2 xl:grid-cols-4">
+        <div
+          v-for="item in data.slice(0, 1)"
+          :key="item._id"
+          class="relative flex gap-10 col-span-2"
+        >
+          <div class="aspect-16/9 overflow-hidden w-full">
+            <YouTube
+              ref="iframe"
+              :src="item.link || ''"
+              height="100%"
+              width="100%"
+              class="w-full h-full"
+              @state-change="onPlayerStateChange"
+            />
+          </div>
           <div
-            v-for="item in data.slice(1, 5)"
-            :key="item._id"
-            class="space-y-2 lg:space-y-4"
+            :class="[
+              'hidden lg:block gradient  transform transition duration-300 ease-in-out',
+              isPlaying
+                ? 'translate-y-1 opacity-0 pointer-events-none'
+                : 'translate-y-0 opacity-100',
+            ]"
           >
-            <div class="aspect-16/9 rounded-xl overflow-hidden">
+            <NuxtLink
+              :to="$localePath(`/`)"
+              class="text-white800 text-2xl lg:text-2xl line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
+            >
+              {{ item.title }}
+            </NuxtLink>
+          </div>
+          <NuxtLink
+            :to="$localePath('/')"
+            class="text-white900 medium text-xl lg:hidden line-clamp-3 xl:hover:text-blue700 active:text-blue700 mt-2 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
+          >
+            {{ item.title }}
+          </NuxtLink>
+        </div>
+
+        <div class="col-span-1 grid grid-cols-1 gap-[26px]">
+          <div
+            v-for="item in data.slice(3, 5)"
+            :key="item._id"
+            class="space-y-2 lg:space-y-4 col-span-1"
+          >
+            <div class="aspect-16/9 overflow-hidden">
               <iframe
                 :src="item?.link"
                 width="100%"

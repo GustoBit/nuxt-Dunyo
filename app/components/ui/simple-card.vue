@@ -11,12 +11,12 @@ defineProps<{
 <template>
   <div
     :class="[
-      'bg-white dark:bg-gray-700 dark:text-white border-b-2 sm:border-0 border-gray500 dark:border-gray-500/20 rounded-2xl ring ring-gray-200 p-1  ',
+      'bg-white dark:bg-darkbg dark:text-white border-b-2 sm:border-0 border-gray500 dark:border-gray-500/20  ring ring-gray-200   ',
     ]"
   >
     <NuxtLink
       :to="$localePath(`/news-details/${news.slug}`)"
-      :class="['aspect-16/9  overflow-hidden rounded-xl block relative']"
+      :class="['aspect-16/9  overflow-hidden  block relative']"
     >
       <NuxtImg :src="`${useUrl()}/${news.img}`" alt="" class="img" />
     </NuxtLink>
