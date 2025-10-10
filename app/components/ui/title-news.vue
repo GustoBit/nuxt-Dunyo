@@ -6,7 +6,7 @@ defineProps<{
 }>();
 </script>
 <template>
-  <div class="space-y-2 py-4">
+  <div class="space-y-2 py-3">
     <NuxtLink
       :to="$localePath(`/news-details/${item.slug}`)"
       class="right-title"

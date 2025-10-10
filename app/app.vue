@@ -1,6 +1,5 @@
 <template>
   <UApp>
-    <UiLoading />
     <ModalSearch />
     <NuxtLayout>
       <NuxtPage />

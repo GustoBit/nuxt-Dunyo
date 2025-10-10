@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div
     :class="[
-      'bg-white dark:bg-darkbg dark:text-white border-b-2 sm:border-0 border-gray500 dark:border-gray-500/20  ring ring-gray-200   ',
+      'bg-white dark:bg-darkbg dark:text-white border-b-2 sm:border-0 border-gray500 dark:border-gray-500/20  ring ring-gray-200  hover:shadow-lg transition-all ',
     ]"
   >
     <NuxtLink

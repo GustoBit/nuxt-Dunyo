@@ -6,23 +6,37 @@ defineProps<{
   title: string;
   slug: string;
 }>();
+
+const mustReadAds = ref<HTMLElement | null>(null);
+const displayWidth = ref<string | number | undefined>();
+const displayHeight = ref<string | number | undefined>();
+const isMounted = ref(false); // Флаг для проверки, смонтирован ли компонент
+
+onMounted(() => {
+  isMounted.value = true; // Устанавливаем флаг после монтирования
+  if (mustReadAds.value) {
+    displayWidth.value = mustReadAds?.value.offsetWidth;
+    displayHeight.value = mustReadAds?.value.offsetHeight;
+    console.log(mustReadAds?.value.offsetHeight);
+  }
+});
 </script>
 
 <template>
   <div class="space-y-[26px] mb72">
     <div class="flex items-center justify-between gap-2">
-      <h1 class="semibold text-3xl sm:text-4xl lg:text-[42px] max-md:text-lg">
+      <h1 class="semibold text-xl sm:text-3xl lg:text-3xl">
         {{ $t("mustRead") }}
       </h1>
 
-      <NuxtLink :to="$localePath('/')" class="medium see max-md:hidden">
+      <!-- <NuxtLink :to="$localePath('/')" class="medium see max-md:hidden">
         {{ $t("seeAll") }}
-      </NuxtLink>
+      </NuxtLink> -->
     </div>
 
-    <div class="grid xl:grid-cols-[316px_1fr] gap-[26px]">
+    <div class="grid grid-cols-12 gap-[26px]">
       <div
-        class="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[631px] xl:overflow-y-auto widget !py-2 overflow-hidden"
+        class="lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[631px] xl:overflow-y-auto widget !py-2 overflow-hidden col-span-3"
       >
         <div
           v-for="item in data.slice(0, 5)"
@@ -46,13 +60,11 @@ defineProps<{
         </div>
       </div>
 
-      <div
-        class="grid lg:grid-cols-[1fr_320px] xl:grid-cols-[662px_320px] gap-[26px]"
-      >
+      <div class="col-span-6">
         <div
           v-for="item in data.slice(5, 6)"
           :key="item._id"
-          class="h-[320px] sm:h-[420px] lg:h-[516px] overflow-hidden rounded-xl relative"
+          class="h-[320px] sm:h-[420px] lg:h-[516px] overflow-hidden relative"
         >
           <NuxtImg :src="`${useUrl()}/${item.img}`" alt="" class="img" />
           <div class="gradient">
@@ -70,28 +82,18 @@ defineProps<{
             </div>
           </div>
         </div>
-
-        <div v-if="!useAds()">
-          <div
-            v-for="item in data.slice(5, 6)"
-            :key="item._id"
-            class="h-[320px] sm:h-[420px] lg:h-[616px] rounded-xl overflow-hidden relative"
-          >
-            <NuxtImg :src="`${useUrl()}/${item.img}`" alt="" class="img" />
-            <div class="gradient">
-              <div class="text-white500 medium text-lg">
-                {{ useformatDate2()(item.date) }}
-              </div>
-              <NuxtLink
-                :to="$localePath(`/news-details/${item.slug}`)"
-                class="text-white800 medium text-xl lg:text-2xl line-clamp-2 xl:hover:text-blue700 active:text-blue700"
-              >
-                {{ item.title }}
-              </NuxtLink>
-            </div>
-          </div>
+      </div>
+      <div class="col-span-3">
+        <div
+          ref="mustReadAds"
+          :class="[
+            'bg-brand flex items-center justify-center text-white h-full w-full',
+          ]"
+        >
+          <span v-if="isMounted"
+            >{{ displayWidth }}px x {{ displayHeight }}px
+          </span>
         </div>
-        <UiAds :style="`h-[180px] lg:h-[516px]`" position-btn="16" />
       </div>
     </div>
   </div>

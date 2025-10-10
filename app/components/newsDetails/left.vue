@@ -26,7 +26,7 @@ defineProps<{
         </div>
       </div>
     </h1>
-    <NuxtImg :src="`${useUrl()}/${news.img}`" alt="" class="img shadow" />
+    <NuxtImg :src="`${useUrl()}/${news.img}`" alt="" class="shadow w-full" />
 
     <div class="space-y-[26px]">
       <div class="flex max-md:flex-col gap-4 items-start">
@@ -35,19 +35,19 @@ defineProps<{
         >
           <UiSocial :vertical="true" />
         </div>
-        <div
-          class="flex-1 bg-white dark:bg-darkbg dark:text-white shadow space-y-6 p-4 dark:ring dark:ring-inset dark:ring-gray-500/20"
-        >
+        <div class="space-y-6">
           <div
-            class="article__box"
+            class="article__box flex-1 bg-white dark:bg-darkbg dark:text-white shadow p-4 dark:ring dark:ring-inset dark:ring-gray-500/20"
             v-html="news.content?.replace(/<p>\s*<br>\s*<\/p>/gi, '')"
           />
 
-          <div>
+          <div class="space-y-2">
             <div class="text-brand dark:text-white">
               {{ $t("others") }}
             </div>
-            <div class="divide-y divide-gray-200 dark:divide-gray-700">
+            <div
+              class="divide-y divide-gray-200 dark:divide-gray-700 p-4 py-0 bg-white dark:bg-darkbg dark:text-white shadow"
+            >
               <TitleNews
                 v-for="item in others.slice(0, 5)"
                 :key="item._id"

@@ -27,7 +27,10 @@ export const useMainStore = defineStore('main-news', () => {
 
 	const getActual = async () => {
 		try {
-			const res = await $api.get(`/api/news/actuals/?lang=${locale.value}`)
+			const res = await $api.get(`/api/news/actuals`,{params:{
+				limit: 5,
+				lang: locale.value
+			}})
 			data.value.actual = res.data
 		} catch (err) {
 			console.log('Error Main', err)
@@ -53,6 +56,8 @@ export const useMainStore = defineStore('main-news', () => {
 			console.log('Error Slider', err)
 		}
 	}
+
+	
 
 	return {
 		slider,

@@ -134,7 +134,19 @@ export const useCategoryStore = defineStore('category', () => {
 		}
 	}
 
+	const returnCategorySlug = async (slug: string, limit: number = 6) => {
+		const {data} = await $api.get(`/api/category/get/${slug}`,{
+			params: {
+				lang: locale.value,
+				limit
+			}
+		})
+		console.log(data);
+		return data
+	}
+
 	return {
+		returnCategorySlug,
 		category,
 		hasSub,
 		categoryNews,

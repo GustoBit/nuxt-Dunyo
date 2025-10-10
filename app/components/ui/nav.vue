@@ -5,6 +5,12 @@ const categoryStore = useCategoryStore();
 const { hasSub } = storeToRefs(categoryStore);
 const loading = useLoading();
 
+const { locale } = useI18n();
+
+watch(locale, () => {
+  getData();
+});
+
 const getData = async () => {
   loading.start();
   await categoryStore.get();
