@@ -36,7 +36,7 @@ onMounted(() => {
 
     <div class="grid grid-cols-12 gap-[26px]">
       <div
-        class="lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[631px] xl:overflow-y-auto widget !py-2 overflow-hidden col-span-3"
+        class="lg:gap-[27px] xl:block xl:space-y-4 xl:!divide-y-2 divide-gray500 xl:max-h-[631px] xl:overflow-y-auto widget !py-2 overflow-hidden col-span-3 max-md:col-span-12"
       >
         <div
           v-for="item in data.slice(0, 5)"
@@ -60,7 +60,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="col-span-6">
+      <div class="col-span-6 max-md:col-span-12">
         <div
           v-for="item in data.slice(5, 6)"
           :key="item._id"
@@ -83,7 +83,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="col-span-3">
+      <div class="col-span-3 col-span-12">
         <div
           ref="mustReadAds"
           :class="[

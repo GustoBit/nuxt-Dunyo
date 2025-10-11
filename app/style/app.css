@@ -32,6 +32,7 @@
     --color-yellow500: #ffe500;
     --color-brand: #0D90CF;
     --color-darkbg: #272727;
+    --text-base--line-height: 1.2;
 }
 
 
@@ -63,7 +64,7 @@ button {
     @apply line-clamp-2 w-fit leading-tight text-lg lg:text-xl xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300;
 }
 .right-title {
-    @apply line-clamp-3 w-fit leading-5  xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300 text-sm;
+    @apply line-clamp-3 w-fit leading-[1.2]  xl:hover:text-blue900 active:text-blue900 xl:dark:hover:text-gray-300 dark:active:text-gray-300 text-sm font-semibold;
 }
 
 .date {

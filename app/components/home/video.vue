@@ -24,7 +24,7 @@ defineProps<{
   <ClientOnly>
     <div class="px-4 py-10 lg:px-8 relative overflow-hidden bg-brand mb-[52px]">
       <div
-        class="container relative z-10 grid gap-[26px] grid-cols-4 max-md:block max-md:space-y-4"
+        class="container relative z-10 grid gap-[26px] grid-cols-4 max-md:grid-cols-1 max-md:block max-md:space-y-4"
       >
         <div class="col-span-1 grid grid-cols-1 gap-[26px]">
           <div
@@ -54,7 +54,7 @@ defineProps<{
         <div
           v-for="item in data.slice(0, 1)"
           :key="item._id"
-          class="relative flex gap-10 col-span-2"
+          class="relative flex gap-10 col-span-2 max-md:flex-col max-md:gap-4"
         >
           <div class="aspect-16/9 overflow-hidden w-full">
             <YouTube

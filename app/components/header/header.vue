@@ -31,7 +31,7 @@ onUnmounted(() => {
     >
       <div class="container relative z-50">
         <div class="flex items-center">
-          <NuxtLink :to="$localePath('/')" class="w-[169px] h-[44px] block">
+          <NuxtLink :to="$localePath('/')" class="w-[169px] h-[60px] block">
             <NuxtImg
               src="/logo.svg"
               alt="Logo"

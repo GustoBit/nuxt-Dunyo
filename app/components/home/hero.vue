@@ -19,7 +19,7 @@ const btns = computed(() => [
 </script>
 
 <template>
-  <div class="grid grid-cols-12 gap-[27px] mb72">
+  <div class="grid grid-cols-12 gap-[27px] mb-[72px] max-md:mb-10">
     <div
       class="aspect-16/9 col-span-9 max-md:col-span-12 overflow-hidden relative xl:order-none"
     >
@@ -31,19 +31,19 @@ const btns = computed(() => [
         }"
         :modules="[Pagination, Autoplay, EffectFade]"
         :autoplay="{
-          delay: 3000,
+          delay: 1000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }"
         effect="fade"
-        :speed="800"
+        :speed="1000"
         :loop="main.length > 1"
         :slides-per-view="1"
         :space-between="10"
         :pagination="{ clickable: true, dynamicBullets: true }"
         class="w-full h-full"
       >
-        <SwiperSlide v-for="item in main" :key="item._id">
+        <SwiperSlide v-for="item in main.slice(0, 3)" :key="item._id">
           <NuxtImg :src="`${useUrl()}/${item.img}`" alt="" class="img" />
 
           <div class="gradient">
@@ -85,7 +85,7 @@ const btns = computed(() => [
         <div
           v-for="item in btnToggle == 'latest' ? latest : actual"
           :key="item._id"
-          class="space-y-1.5 py-2 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
+          class="space-y-2 py-3 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
         >
           <NuxtLink
             :to="$localePath(`/news-details/${item.slug}`)"

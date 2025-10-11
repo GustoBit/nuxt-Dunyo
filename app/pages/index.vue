@@ -60,14 +60,19 @@ definePageMeta({
         :latest="data.latest?.slice(0, 5)"
         :actual="data.actual?.slice(0, 5)"
       />
-      <div class="grid grid-cols-12 gap-8 content-start pb-10">
-        <div class="col-span-9 flex flex-col space-y-8">
+      <UiCustomAds />
+      <div class="grid grid-cols-12 gap-8 content-start pb-10 mt-10">
+        <div class="col-span-9 flex flex-col space-y-8 max-md:col-span-12">
           <UiNews
             :data="data.actual"
             :title="$t('actualNews')"
             :slug="important.slug"
           />
-          <UiCustomAds />
+        </div>
+        <div class="col-span-3 max-md:col-span-12">
+          <HomeCalendarNews />
+        </div>
+        <div class="col-span-9 max-md:col-span-12 flex flex-col space-y-8">
           <UiNews
             :data="latest.data"
             :title="latest.title"
@@ -75,7 +80,12 @@ definePageMeta({
           />
         </div>
         <div class="col-span-3 max-md:col-span-12">
-          <HomeDateNews />
+          <HomeDateNews
+            slug="mir-ob-uzbekistane"
+            :count="3"
+            :show-title="true"
+            :calendar-hide="true"
+          />
         </div>
       </div>
     </div>

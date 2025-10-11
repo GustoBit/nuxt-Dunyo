@@ -126,7 +126,9 @@ onMounted(() => {
         </div>
       </div>
       <div class="text-center space-y-1 bg-brand">
-        <div class="container flex items-center p-4 text-white gap-4">
+        <div
+          class="container flex max-md:flex-col items-center p-4 text-white gap-4"
+        >
           <NuxtLink
             v-for="link of footerLinks"
             :key="link.to"
