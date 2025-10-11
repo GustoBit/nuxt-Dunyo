@@ -57,7 +57,7 @@ defineProps<{
       </NuxtLink>
       <div
         v-if="idx === 0"
-        class="no-img text-sm"
+        class="no-img-box text-sm"
         v-html="news.content?.replace(/<p>\s*<br>\s*<\/p>/gi, '')"
       />
       <div class="mt-auto text-xs text-gray-600 dark:text-gray-400">

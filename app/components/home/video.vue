@@ -22,7 +22,7 @@ defineProps<{
 
 <template>
   <ClientOnly>
-    <div class="px-4 py-10 lg:px-8 relative overflow-hidden bg-brand mb-[52px]">
+    <div class="px-4 py-10 lg:px-8 relative overflow-hidden bg-blue-950 mb-[52px]">
       <div
         class="container relative z-10 grid gap-[26px] grid-cols-4 max-md:grid-cols-1 max-md:block max-md:space-y-4"
       >

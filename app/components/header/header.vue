@@ -20,7 +20,10 @@ onUnmounted(() => {
 
 <template>
   <header
-    class="sticky top-0 z-50 bg-gray-50/80 dark:bg-darkbg backdrop-blur-md border-b-2 border-brand"
+    :class="[
+      'sticky top-0 z-50  dark:bg-darkbg  border-b-2 border-brand',
+      isScrolled ? 'bg-gray-50/80 backdrop-blur-md' : 'bg-white',
+    ]"
   >
     <div
       :class="[
@@ -31,7 +34,13 @@ onUnmounted(() => {
     >
       <div class="container relative z-50">
         <div class="flex items-center">
-          <NuxtLink :to="$localePath('/')" class="w-[169px] h-[60px] block">
+          <NuxtLink
+            :to="$localePath('/')"
+            :class="[
+              'block transition-all',
+              isScrolled ? 'h-[50px]' : 'h-[70px]',
+            ]"
+          >
             <NuxtImg
               src="/logo.svg"
               alt="Logo"

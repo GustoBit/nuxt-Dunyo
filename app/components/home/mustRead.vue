@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <div class="space-y-[26px] mb72">
     <div class="flex items-center justify-between gap-2">
-      <h1 class="semibold text-xl sm:text-3xl lg:text-3xl">
+      <h1 class="font-bold text-xl sm:text-3xl lg:text-3xl">
         {{ $t("mustRead") }}
       </h1>
 

@@ -25,7 +25,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-white700 dark:bg-gray-700 pt-14 rounded-t-3xl lg:rounded-t-[50px] mt-14 lg:mt-[72px] bg-[url(/background.svg)] bg-center bg-no-repeat bg-cover"
+    class=" dark:bg-gray-700 pt-14 rounded-t-3xl lg:rounded-t-[50px] mt-14 lg:mt-[72px] bg-[url(/background.svg)] bg-center bg-no-repeat bg-cover"
   >
     <footer class="space-y-8">
       <div class="container space-y-8 pb-8">

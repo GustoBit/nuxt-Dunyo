@@ -31,7 +31,7 @@ const btns = computed(() => [
         }"
         :modules="[Pagination, Autoplay, EffectFade]"
         :autoplay="{
-          delay: 1000,
+          delay: 4000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }"
@@ -53,7 +53,7 @@ const btns = computed(() => [
             </div>
             <NuxtLink
               :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white text-2xl lg:text-[32px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 leading-8 font-semibold leading-[1.2]"
+              class="text-white text-2xl lg:text-[32px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 font-bold leading-[1.2]"
             >
               {{ item.title }}
             </NuxtLink>

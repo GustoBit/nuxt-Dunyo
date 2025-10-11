@@ -27,14 +27,16 @@ onMounted(() => {
     <div
       class="container bg-white dark:bg-darkbg ring ring-white dark:ring-gray-700"
     >
-      <div class="flex items-center justify-between p-4 py-3">
+      <div
+        class="flex items-center justify-around p-4 py-3 "
+      >
         <NuxtLink
           v-for="(item, index) in hasSub"
           :key="item._id"
           :to="$localePath(`/category/${item.slug}`)"
-          class="relative inline-block group text-gray700 dark:text-gray-100 hover:text-blue800 dark:hover:text-white800 font-medium"
+          class="relative flex group text-gray700 dark:text-gray-100 hover:text-blue800 dark:hover:text-white800 font-medium"
         >
-          <p class="regular">
+          <p class="font-semibold uppercase">
             {{ item.title }}
           </p>
 

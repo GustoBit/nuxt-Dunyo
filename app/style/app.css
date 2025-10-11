@@ -37,7 +37,7 @@
 
 
 body {
-    @apply bg-gray-50 text-black800 dark:bg-darkbg dark:text-white900 font-inter;
+    @apply bg-blue-50 text-black800 dark:bg-darkbg dark:text-white900 font-inter;
 }
 
 .container {
@@ -52,7 +52,7 @@ body {
     @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10;
 }
 .hero-gradient {
-    @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:pb-13 lg:px-10 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10 ;
+    @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:pb-13 lg:px-10 lg:space-y-2 bg-gradient-to-t from-[#000]/70 from-10% via-[#000]/40 via-60% to-[#000]/0 pt-20 ;
 }
 
 button {
@@ -85,7 +85,7 @@ button {
     @apply ring ring-gray-200 dark:ring-gray-500/20 px-4 py-0 divide-y divide-gray-200 dark:divide-gray-500/20  bg-white shadow dark:bg-darkbg
 }
 /* rounded-mg */
-.no-img {
+.no-img-box {
     @apply line-clamp-5 max-h-[80px] overflow-hidden;
     strong {
         font-weight: normal
@@ -96,10 +96,18 @@ button {
     }
 
 }
+.no-img {
+    @apply line-clamp-5;
+    
+    img {
+        @apply hidden
+    }
+
+}
 
 /* #####14181F */
 .article__box {
-    @apply relative z-30 space-y-4 line-clamp-4;
+    @apply relative z-30 space-y-4;
 
     p {
         @apply text-justify text-base leading-7 font-light;

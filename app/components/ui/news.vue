@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div class="space-y-4">
-    <h1 class="semibold text-xl lg:text-2xl xl:text-[32px] max-md:text-lg">
+    <h1 class="font-bold text-xl lg:text-2xl xl:text-[32px] max-md:text-lg">
       {{ title }}
     </h1>
     <div

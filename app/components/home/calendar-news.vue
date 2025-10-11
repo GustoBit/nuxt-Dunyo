@@ -110,7 +110,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="space-y-5 pt-2">
-    <div class="semibold leading-tight text-xl lg:text-2xl">
+    <div class="font-bold leading-tight text-xl lg:text-2xl">
       {{ data?.category.title }}
     </div>
     <div>
