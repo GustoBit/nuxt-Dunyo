@@ -44,7 +44,7 @@ onMounted(() => {
         >
           <div
             v-if="showTitle"
-            class="absolute flex p-2 w-full bottom-0 bg-black/30 text-white items-end"
+            class="absolute flex p-2 w-full bottom-0 bg-black/30 text-white items-end font-semibold"
           >
             {{ news.title }}
           </div>
@@ -66,7 +66,7 @@ onMounted(() => {
           <NuxtLink
             :to="$localePath(`/news-details/${news.slug}`)"
             :class="[
-              ' hover:text-brand transition-all    text-gray-700 dark:text-gray-300 flex gap-1 text-sm',
+              ' hover:text-brand transition-all    text-gray-700 dark:text-gray-300 flex gap-1 text-sm font-semibold',
             ]"
           >
             <Icon

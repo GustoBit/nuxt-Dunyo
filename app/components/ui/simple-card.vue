@@ -26,7 +26,7 @@ defineProps<{
       </div>
       <NuxtLink
         :to="$localePath(`/news-details/${news.slug}`)"
-        class="line-clamp-2"
+        class="line-clamp-2 font-semibold"
       >
         {{ news.title }}
       </NuxtLink>

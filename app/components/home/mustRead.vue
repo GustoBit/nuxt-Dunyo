@@ -45,7 +45,7 @@ onMounted(() => {
         >
           <NuxtLink
             :to="$localePath(`/news-details/${item.slug}`)"
-            class="line-clamp-2"
+            class="line-clamp-2 font-semibold"
           >
             {{ item.title }}
           </NuxtLink>
@@ -73,7 +73,7 @@ onMounted(() => {
             </div>
             <NuxtLink
               :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white800 medium text-2xl lg:text-[24px] line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300"
+              class="text-white800 medium text-2xl lg:text-[24px] line-clamp-2 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 font-semibold"
             >
               {{ item.title }}
             </NuxtLink>
@@ -83,7 +83,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="col-span-3 col-span-12">
+      <div class="col-span-3 max-md:col-span-12">
         <div
           ref="mustReadAds"
           :class="[

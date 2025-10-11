@@ -52,7 +52,7 @@ const btns = computed(() => [
             </div>
             <NuxtLink
               :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white font-medium text-2xl lg:text-[26px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 leading-7"
+              class="text-white text-2xl lg:text-[26px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 leading-7 font-semibold"
             >
               {{ item.title }}
             </NuxtLink>
@@ -80,12 +80,12 @@ const btns = computed(() => [
         </button>
       </div>
       <div
-        class="xl:block xl:!divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden flex-1"
+        class="xl:block divide-y-2 divide-gray500 xl:max-h-[567px] xl:overflow-y-auto widget !py-2 overflow-hidden flex-1"
       >
         <div
           v-for="item in btnToggle == 'latest' ? latest : actual"
           :key="item._id"
-          class="space-y-2 py-3 border-b-2 xl:border-b-0 border-gray500 dark:border-gray-500/20"
+          class="space-y-2 py-3"
         >
           <NuxtLink
             :to="$localePath(`/news-details/${item.slug}`)"

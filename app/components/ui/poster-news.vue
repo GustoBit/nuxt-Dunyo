@@ -18,8 +18,8 @@ defineProps<{
     <NuxtLink
       :to="$localePath(`/news-details/${news.slug}`)"
       :class="[
-        'overflow-hidden  block relative',
-        idx === 0 ? 'w-full aspect-16/9' : 'w-[120px] h-full',
+        'overflow-hidden block relative',
+        idx === 0 ? 'w-full aspect-16/9' : 'w-[120px] ',
       ]"
     >
       <div
@@ -40,14 +40,14 @@ defineProps<{
       <NuxtImg
         :src="`${useUrl()}/${news.img}`"
         alt=""
-        :class="[idx === 0 ? 'img' : 'w-full h-full object-cover']"
+        :class="[idx === 0 ? 'img' : 'w-full h-full object-cover block']"
       />
     </NuxtLink>
     <div class="flex-1 p-2 flex flex-col gap-2">
       <NuxtLink
         :to="$localePath(`/news-details/${news.slug}`)"
         :class="[
-          'hover:text-brand',
+          'hover:text-brand font-semibold',
           idx == 0 ? 'text-xl max-md:text-lg' : 'text-base line-clamp-3',
         ]"
       >
