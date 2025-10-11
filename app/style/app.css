@@ -51,6 +51,9 @@ body {
 .gradient {
     @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10;
 }
+.hero-gradient {
+    @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:pb-13 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10;
+}
 
 button {
     @apply cursor-pointer;
@@ -83,8 +86,11 @@ button {
 }
 /* rounded-mg */
 .no-img {
-    @apply line-clamp-5;
-
+    @apply line-clamp-5 max-h-[80px] overflow-hidden;
+    strong {
+        font-weight: normal
+    }
+    
     img {
         @apply hidden
     }
@@ -93,7 +99,7 @@ button {
 
 /* #####14181F */
 .article__box {
-    @apply relative z-30 space-y-4  ;
+    @apply relative z-30 space-y-4 line-clamp-4;
 
     p {
         @apply text-justify text-base leading-7 font-light;

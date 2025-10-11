@@ -48,7 +48,9 @@ defineProps<{
         :to="$localePath(`/news-details/${news.slug}`)"
         :class="[
           'hover:text-brand font-semibold',
-          idx == 0 ? 'text-xl max-md:text-lg' : 'text-base line-clamp-3',
+          idx == 0
+            ? 'text-xl max-md:text-lg leading-[1.2]'
+            : 'text-base line-clamp-3',
         ]"
       >
         {{ news.title }}
