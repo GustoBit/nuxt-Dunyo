@@ -48,11 +48,12 @@ const btns = computed(() => [
 
           <div class="hero-gradient">
             <div class="text-white max-md:text-xs">
-              {{ useformatDate2()(item.date) }}
+              {{ useformatDate2()(item.date) }} |
+              <span class="bg-brand py-1 px-2">{{ item.category.title }}</span>
             </div>
             <NuxtLink
               :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white text-2xl lg:text-[32px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 leading-8 font-semibold"
+              class="text-white text-2xl lg:text-[32px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 leading-8 font-semibold leading-[1.2]"
             >
               {{ item.title }}
             </NuxtLink>

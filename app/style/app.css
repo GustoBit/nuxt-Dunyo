@@ -52,7 +52,7 @@ body {
     @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10;
 }
 .hero-gradient {
-    @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:pb-13 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10;
+    @apply absolute bottom-0 left-0 right-0 p-4 space-y-1 lg:p-8 lg:pb-13 lg:px-10 lg:space-y-2 bg-gradient-to-t from-[#002D72] from-10% via-[#002D72]/60 via-70% to-[#002D72]/0 pt-10 ;
 }
 
 button {
