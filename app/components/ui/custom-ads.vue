@@ -29,7 +29,7 @@ const heightClass = computed(() => {
   <div
     ref="elementRef"
     :class="[
-      'bg-brand flex items-center justify-center text-white',
+      'bg-gray-400 flex items-center justify-center text-white',
       heightClass,
       width ? width : 'w-full',
     ]"

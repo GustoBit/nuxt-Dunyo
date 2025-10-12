@@ -27,18 +27,16 @@ onMounted(() => {
     <div
       class="container bg-white dark:bg-darkbg ring ring-white dark:ring-gray-700"
     >
-      <div
-        class="flex items-center justify-around p-4 py-3 "
-      >
+      <div class="flex items-center justify-around">
         <NuxtLink
           v-for="(item, index) in hasSub"
           :key="item._id"
           :to="$localePath(`/category/${item.slug}`)"
           class="relative flex group text-gray700 dark:text-gray-100 hover:text-blue800 dark:hover:text-white800 font-medium"
         >
-          <p class="font-semibold uppercase">
+          <span class="font-semibold p-4 py-3">
             {{ item.title }}
-          </p>
+          </span>
 
           <div
             :class="[
@@ -51,13 +49,13 @@ onMounted(() => {
             ]"
           >
             <div
-              class="bg-gray-100 dark:bg-gray-700 shadow rounded-lg p-2 cursor-default"
+              class="bg-gray-50 dark:bg-gray-700 shadow rounded-lg p-2 cursor-default"
             >
               <NuxtLink
                 v-for="l in item.subs"
                 :key="l._id"
                 :to="$localePath(`/category/${l.slug}`)"
-                class="block rounded-lg px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-500/20"
+                class="block rounded-lg px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-400/20"
               >
                 <p
                   class="regular text-black800 dark:text-white800 hover:text-blue800 dark:hover:text-white800"

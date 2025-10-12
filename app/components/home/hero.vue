@@ -21,45 +21,50 @@ const btns = computed(() => [
 <template>
   <div class="grid grid-cols-12 gap-[27px] mb-[72px] max-md:mb-10">
     <div
-      class="aspect-16/9 col-span-9 max-md:col-span-12 overflow-hidden relative xl:order-none"
+      class="col-span-9 max-md:col-span-12 overflow-hidden relative xl:order-none"
     >
-      <Swiper
-        :style="{
-          '--swiper-pagination-color': '#fff',
-          '--swiper-pagination-bullet-inactive-color': '#fff',
-          '--swiper-pagination-bullet-inactive-opacity': '0.5',
-        }"
-        :modules="[Pagination, Autoplay, EffectFade]"
-        :autoplay="{
-          delay: 4000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }"
-        effect="fade"
-        :speed="1000"
-        :loop="main.length > 1"
-        :slides-per-view="1"
-        :space-between="10"
-        :pagination="{ clickable: true, dynamicBullets: true }"
-        class="w-full h-full"
-      >
-        <SwiperSlide v-for="item in main.slice(0, 3)" :key="item._id">
-          <NuxtImg :src="`${useUrl()}/${item.img}`" alt="" class="img" />
+      <div class="aspect-16/9">
+        <Swiper
+          :style="{
+            '--swiper-pagination-color': '#fff',
+            '--swiper-pagination-bullet-inactive-color': '#fff',
+            '--swiper-pagination-bullet-inactive-opacity': '0.5',
+          }"
+          :modules="[Pagination, Autoplay, EffectFade]"
+          :autoplay="{
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }"
+          effect="fade"
+          :speed="1000"
+          :loop="main.length > 1"
+          :slides-per-view="1"
+          :space-between="10"
+          :pagination="{ clickable: true, dynamicBullets: true }"
+          class="w-full h-full"
+        >
+          <SwiperSlide v-for="item in main.slice(0, 3)" :key="item._id">
+            <NuxtImg :src="`${useUrl()}/${item.img}`" alt="" class="img" />
 
-          <div class="hero-gradient">
-            <div class="text-white max-md:text-xs">
-              {{ useformatDate2()(item.date) }} |
-              <span class="bg-brand py-1 px-2">{{ item.category.title }}</span>
+            <div class="hero-gradient">
+              <div class="text-white max-md:text-xs">
+                {{ useformatDate2()(item.date) }} |
+                <span class="bg-brand py-1 px-2">{{
+                  item.category.title
+                }}</span>
+              </div>
+              <NuxtLink
+                :to="$localePath(`/news-details/${item.slug}`)"
+                class="text-white text-2xl lg:text-[32px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 font-bold leading-[1.2]"
+              >
+                {{ item.title }}
+              </NuxtLink>
             </div>
-            <NuxtLink
-              :to="$localePath(`/news-details/${item.slug}`)"
-              class="text-white text-2xl lg:text-[32px] max-md:line-clamp-2 max-md:text-sm line-clamp-3 xl:hover:text-blue700 active:text-blue700 xl:dark:hover:text-gray-300 dark:active:text-gray-300 font-bold leading-[1.2]"
-            >
-              {{ item.title }}
-            </NuxtLink>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      
     </div>
 
     <div
